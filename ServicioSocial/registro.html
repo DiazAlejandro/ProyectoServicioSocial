@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="shortcut icon" href="imagenes/ito.png"> 
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- font -->
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;900&display=swap"
+        rel="stylesheet">
+    <!-- icono -->
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+
+    <!-- llamamos al archivo style -->
+    <link href='css/registro.css' rel="stylesheet">
+
+    <title>Regístrate</title>
+  </head>
+  <body>
+      
+<!-- LA PROGRAMACIÓN DE LA PÁGINA -->
+      <!-- contact-box se encarga de poner un contorno -->
+    <section class="contact-box">
+        <div class = "row no-gutters bg-dark">
+            <div class="col-xl-5 col-lg-12 register-bg ">
+
+            </div>
+            <div class="col-xl-7 col-lg-12 d-flex">
+                <div class="container align-self-center p-6">
+                    <h1 class="font-weight mb-3">Servicio Social</h1>
+                    <!-- subttítulo -->
+                    <p class="text-muted mb-5"> Ingresa la siguiente información para registrarte.</p>
+                    <form  onsubmit="registrarAlumno(event)">
+                        <!-- Nombre y Apellido -->
+                        <div class="form-row mb-2">
+                            <div class="form-group col-md-6">
+                                <label class="font-weight">Nombre: <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" name = "name" id = "name" placeholder="Tu nombre">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="font-weight">Apellido: <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" name = "apell" id = "apell" placeholder="Tu apellido">
+                            </div>
+                        </div>
+                        <!-- No.Control y Carrera -->
+                        <div class="form-row mb-2">
+                            <div class="form-group col-md-6">
+                                <label class="font-weight">Número de control: <span class="text-danger">*</span></label>
+                                <input type="tel" class="form-control" name= "noctrl" id = "noctrl" placeholder="Tu número de control">
+                            </div>
+
+                            <div class="form-group col-md-6 width-100">
+                                <label class="font-weight">Carrera: <span class="text-danger">*</span></label>
+                                <select type="text" class="custom-select" list = "carreras" name = "carrera" id = "carrera" style="width:295px";>
+                                <option value="Carrera">Carrera...</option>
+                                <option value="Ingeniería  en Gestión Empresarial">Ingeniería  en Gestión Empresarial</option>
+                                <option value="Ingeniería  en Sis. Computacionales">Ingeniería  en Sis. Computacionales</option>
+                                <option value="Ingeniería  Civil">Ingeniería  Civil</option>
+                                <option value="Ingeniería  Electrónica">Ingeniería  Electrónica</option>
+                                <option value="Ingeniería  Mecánica">Ingeniería  Mecánica</option>
+                                <option value="Ingeniería  Industria">Ingeniería  Industrial</option>
+                                <option value="Ingeniería  Química">Ingeniería  Química</option>
+                                <option value="Ingeniería  Electrica">Ingeniería  Electrica</option>
+                                <option value="Licenciatura en administración">Licenciatura en administración</option>
+                                </select>
+                                <datalist id = "carreras">
+                                    <option value = "Ingeniería  en Gestión Empresarial">
+                                    <option value = "Ingeniería  en Sis. Computacionales">
+                                    <option value = "Ingeniería  Civil">
+                                    <option value = "Ingeniería  Electrónica">
+                                    <option value = "Ingeniería  Mecánica">
+                                    <option value = "Ingeniería  Industria">
+                                    <option value = "Ingeniería  Química">
+                                    <option value = "Ingeniería  Electrica">
+                                    <option value = "Licenciatura en administración">
+                                </datalist>
+                            </div>
+                        </div>
+                        <!-- Correo y Contraseña -->
+                        <div class="form-group mb-3">
+                            <label class="font-weight">Correo electrónico <span class="text-danger">*</span></label>
+                            <input type="email" class="form-control"  name = "email" id = "email" placeholder="Ingresa tu correo electrónico">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="font-weight">Contraseña <span class="text-danger">*</span></label>
+                            <input type="password" class="form-control" name = "pass" id = "password" placeholder="Ingresa una contraseña">
+                        </div>
+                        <div class="form-group mb-5">
+                            <div class="form-check">
+                            
+                                <input class="form-check-input" type="checkbox" id="chec" onclick="activar()" />
+                                <label class="form-check-label text-muted">Al seleccionar esta casilla acepta que tiene 160 créditos necesarios para realizar el servicio social. </label>
+                            </div>
+                        </div>
+                        <a type="button" class="btn btn-default btn-lg width-100"  href="index.html" > Regresar</a>
+                        <button type="submit" class="btn btn-primary btn-lg width-100" id="botoncito" disabled> Regístrate</button>
+
+                    </form>
+                    <small class="d-inline-block text-muted mt-5"> Todos los Derechos Reservados ® 2020 </small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+                 <!-- The core Firebase JS SDK is always required and must be listed first -->
+                 <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
+                 <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+                 <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-database.js"></script> 
+                 <!-- TODO: Add SDKs for Firebase products that you want to use
+                     https://firebase.google.com/docs/web/setup#available-libraries -->
+                 <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-analytics.js"></script> 
+                 
+                 
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="registro.js"></script>
+  </body>
+  <!-- Optional JavaScript 
+  //<script src="js/app.js"></script>  -->
+</html>

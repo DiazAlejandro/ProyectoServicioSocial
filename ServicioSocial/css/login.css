@@ -1,0 +1,77 @@
+body{
+    background:url(../imagenes/SER_LOG.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+h1{
+    color:rgb(255, 255, 255);
+    text-align:center;
+}
+.formulario{
+    background-color: #1B396A;
+    padding: 20px;
+    box-shadow: 0 0 50px  rgba(0, 0, 0, 0.9);
+    color:rgb(0, 0, 0);
+}
+.form-control{
+    margin-top:20px;
+    background: white;
+    border-style:non;
+    transition: 0.5s ease-in;
+    font-size: 18px;
+    padding-left: 60px;
+}
+.Input{
+    transition: .8s;
+    background-color:white;
+    color:rgb(73, 71, 71);
+    border-color:black;
+    border-bottom-color:rgb(71, 200, 223);
+    border-bottom-style: groove;
+    border-width:6px;
+}
+.Input:haver{
+    transition:.8s;
+    background-color: rgba(55,71,79,.5);
+    box-shadow: inset;
+    border-bottom-color: red;
+}
+.Input:focus{
+    transition:.8s;
+    border-bottom-color: red;
+}
+
+.ito-img img{
+    width: -100xp;
+    height: 140px; 
+    margin-top:-80px;
+    border: radius 10;
+    top:-90px;
+    padding-right: 10px;
+}
+.form-group::before{
+    font-family:"Font Awesome\ 5 Free";
+    position:absolute;
+    left:30px;
+    font-size:22px;
+    padding-top:4px;
+}
+.form-group#correo::before{
+    content:"\f007";
+}
+.form-group#contraseña::before{
+    content:"\f023";
+}
+.ingresar{
+  background: rgb(1, 1, 109);
+  color: rgb(255, 255, 255);
+  box-shadow:0 0 30px rgba(92, 95, 107, 0.9);
+  padding-left: -20px;
+  margin-top:-40px;
+} 
+.reg{
+    color:white;
+    font-size:18px;
+}
+

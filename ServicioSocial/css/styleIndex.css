@@ -1,0 +1,114 @@
+body {
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.imagenes{
+    padding: 0px 195px 0px 195px;
+    margin: -23px;
+    float: left;
+    width: 200px;
+    text-align: center;
+}
+
+
+.navbar {
+    
+    background-color:  #1B396A;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .75);
+    min-height: 100px;
+}
+
+.nav-link{
+    color: #ffffff;
+}
+
+.navbar-brand{
+    font-family: 'Titillium Web', sans-serif;
+    color: #ffffff;
+    
+}
+
+.logo-brand{
+    min-width: 50px;
+    max-width: 50px;
+}
+
+.logoTecNM-brand{
+    min-width: 80px;
+    max-width: 80px;
+}
+
+.logoSep-brand{
+    min-width: 80px;
+    max-width: 70px;
+    margin-top: 10px;
+}
+
+.logoEdu-brand{
+    min-width: 80px;
+    max-width: 300px;
+}
+
+.logoEsc-brand{
+    min-width: 30px;
+    max-width: 150px;
+}
+
+section{
+    padding: 30px 0;
+ 
+   
+    overflow: hidden;
+}
+
+div#encabezado{
+    padding: 30px 0;
+
+}
+
+div#general{
+    width: 1200px;
+    height: 250px;
+    margin: auto;
+    
+}
+
+div#logoE{
+    width: 300px;
+    position: relative;
+    left: 50px;
+    top: 90px;
+    background-color:#1B396A;
+}
+
+
+div#contacto{
+    color: #ffffff;
+    text-align: center;
+   position: relative;
+   left: 375px;
+   bottom: 80px;
+    width: 500px;
+    height: 300px;
+}
+
+div#logoM{
+    width: 150px;
+    position: relative;
+    bottom: 320px;
+    left: 975px;
+    background-color: #1B396A;
+}
+
+div#diapositivas{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+}
+
+
+
+
+.bg-light-gre{ background-color: #f5f5f5;}
+.bg-dark { background-color: #1a1a1a;}
+.bg-blue{ background-color: #1B396A;}

@@ -1,0 +1,69 @@
+body {
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.borde{
+    
+    text-align: center;
+    height: 80px;
+}
+
+.borde2{
+    
+    text-align: center;
+    height: 270px;
+}
+
+.logoTecNM-brand{
+    margin-top: 10px;
+    max-width: 90px;
+}
+
+.logo-brand{
+    margin-top: 10px;
+    max-width: 60px;
+}
+
+.logoSep-brand{
+    margin-top: 25px;
+    max-width: 90px;
+}
+
+.navbar {
+    background-color:  #1B396A;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .75);
+    min-height: 70px;
+}
+
+.nav-link{
+    color: #ffffff;
+}
+
+.navbar-brand{
+    font-family: 'Titillium Web', sans-serif;
+    color: #ffffff;
+    
+}
+
+.logoEdu-brand{
+    margin-top: 30%;
+    max-width: 300px;
+}
+
+.logoEsc-brand{
+    margin-top: 15%;
+    max-width: 150px;
+}
+
+div#contacto{
+    color: #ffffff;
+
+}
+div#diapositivas{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+}
+
+
+.bg-blue{ background-color: #1B396A;}

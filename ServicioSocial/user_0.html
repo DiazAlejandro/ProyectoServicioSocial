@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <script src = "admin.js"></script>
+    <script src = "app.js"></script>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
@@ -35,21 +35,27 @@
     firebase.analytics();
     </script> 
 </head>
-<body>
-    <h1>Bienvenido</h1>
 
-    <table>
-        <thead>
-               <tr>
-                   <th  style="color:white">noControl</th>
-                   <th  style="color:white">apellidos</th>                                    
-                   <th  style="color:white">nombre</th>    
-                   <th  style="color:white">carrera</th>    
-                   <th  style="color:white">ddd</th> 
-                </tr>
-        </thead>
-        <tbody id="tabla">                                
-        </tbody>
-    </table>
+<body>
+    <p>Perfil del Usuario</p>
+    <p>Información personal:</p>
+    <label>Nombre: </label> <label id = "nombre"></label><br>
+    <label>Apellidos: </label> <label id = "apellido"></label><br>
+    <label>Carrera: </label> <label id = "carrera"></label><br>
+    <label>Número de Control: </label> <label id = "noctrl"></label>
+    <h3 id = "nombre"></h3>
+    <h3 id = "apellido"></h3>
+    <h3 id = "carrera"></h3>
+    <h3 id = "noctrl"></h3>
+    <button onclick="logoutAlumno()">Cerrar Sesión</button><br><br>
+    <p>Documentación requerida:</p>
+    
+    <!--Etiquetas para la solicitud-->
+    <label>Ingresar en este apartado su documento (Kardex de Calificaciones) => </label> <br>
+    <a id = "evidencia" ></a>
+    <input type="text" name = "documentoEvidencia" id = "documentoEvidencia" placeholder="Ingrese enlace de su Kardex">
+    <button onclick="actualizarEvidencia()">Guardar</button>
+    <button onclick="eliminarEvidencia()">Eliminar</button><br><br>
 </body>
+
 </html>

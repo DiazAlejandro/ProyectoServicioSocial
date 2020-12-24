@@ -60,20 +60,16 @@ function mostrarInformacion(){
     var userId = localStorage.getItem('id');
         firebase.database().ref('alumno/'+userId).once('value').then(function(snapshot){
             var nombre = (snapshot.val() && snapshot.val().studentName);
-            var apell = (snapshot.val() && snapshot.val().apellidos);
+            var apell = (snapshot.val() && snapshot.val().studentApellidos);
             var noControl = (snapshot.val() && snapshot.val().studentNoctrl);
             var carrera = (snapshot.val() && snapshot.val().studentCarrera);
-            var doc1 = (snapshot.val() && snapshot.val().documento1);
-            var doc2 = (snapshot.val() && snapshot.val().documento2);
-            var doc3 = (snapshot.val() && snapshot.val().documento3);
+            var documentoEvidencia = (snapshot.val() && snapshot.val().documentoEvidencia);
             //document.getElementById('idEtiquetaAmostrarEnHTML').innerHTML = varible;
             document.getElementById('nombre').innerHTML = nombre;
             document.getElementById('apellido').innerHTML = apell;
             document.getElementById('carrera').innerHTML = carrera;
             document.getElementById('noctrl').innerHTML = noControl;
-            document.getElementById('solicitud').innerHTML = doc1;
-            document.getElementById('cartaCompromiso').innerHTML = doc2;
-            document.getElementById('tarjetaControl').innerHTML = doc3;
+            document.getElementById('evidencia').innerHTML = documentoEvidencia;
         });
 }
 
@@ -84,7 +80,35 @@ window.onload = function(){
 }
 
 //Funciones encargadas de Guardar y eliminar los archivos de la BD 
+//Docuemento Evidencia
+//***********************************************************************************************************/
+function actualizarEvidencia(){
+    var userId    = localStorage.getItem('id'); //Recuperar el id del alumno
+    var evidencia = document.getElementById('documentoEvidencia').value; //Guardar en una variable el enlace del alumno
+    firebase.database().ref('alumno/'+userId).update({
+        documentoEvidencia:evidencia,
+    }).catch(function(error){
+        alert("Su documento no ha sido guardado con éxito. Intentelo mas tarde");
+    });
+    alert("Documento de Evidencia - Guardado");
+    location.reload(); //Actualizar la pagina automáticamente
+    document.getElementById("documentoEvidencia").value = ""; //Limpia el campo cada que se hace la operación
+}
 
+function eliminarEvidencia(){
+    var userId = localStorage.getItem('id');
+    var evidencia = "Sin Añadir";
+    firebase.database().ref('alumno/'+userId).update({
+        documentoEvidencia:evidencia,
+    }).catch(function(error){
+        alert("Su documento no ha sido borrado con éxito. Intentelo mas tarde");
+    });
+    alert("Documento Eliminado");
+    location.reload(); //Actualizar la pagina automáticamente
+    document.getElementById("documentoEvidencia").value = ""; //Limpia el campo cada que se hace la operación
+}
+
+//***********************************************************************************************************/
 //Docuemento 1
 function actualizarSolicitud(){
     var userId = localStorage.getItem('id');

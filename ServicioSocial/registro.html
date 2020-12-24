@@ -55,40 +55,123 @@
 
                             <div class="form-group col-md-6 width-100">
                                 <label class="font-weight">Carrera: <span class="text-danger">*</span></label>
-                                <select type="text" class="custom-select" list = "carreras" name = "carrera" id = "carrera" style="width:295px";>
+                                <select type="text" class="custom-select" list = "carreras" name = "carrera" id = "carrera" >
                                 <option value="Carrera">Carrera...</option>
-                                <option value="Ingeniería  en Gestión Empresarial">Ingeniería  en Gestión Empresarial</option>
-                                <option value="Ingeniería  en Sis. Computacionales">Ingeniería  en Sis. Computacionales</option>
-                                <option value="Ingeniería  Civil">Ingeniería  Civil</option>
-                                <option value="Ingeniería  Electrónica">Ingeniería  Electrónica</option>
-                                <option value="Ingeniería  Mecánica">Ingeniería  Mecánica</option>
-                                <option value="Ingeniería  Industria">Ingeniería  Industrial</option>
-                                <option value="Ingeniería  Química">Ingeniería  Química</option>
-                                <option value="Ingeniería  Electrica">Ingeniería  Electrica</option>
+                                <option value="Ingeniería en Gestión Empresarial">Ingeniería en Gestión Empresarial</option>
+                                <option value="Ingeniería en Sis. Computacionales">Ingeniería en Sis. Computacionales</option>
+                                <option value="Ingeniería Civil">Ingeniería Civil</option>
+                                <option value="Ingeniería Electrónica">Ingeniería Electrónica</option>
+                                <option value="Ingeniería Mecánica">Ingeniería Mecánica</option>
+                                <option value="Ingeniería Industria">Ingeniería Industrial</option>
+                                <option value="Ingeniería Química">Ingeniería Química</option>
+                                <option value="Ingeniería Electrica">Ingeniería Electrica</option>
                                 <option value="Licenciatura en administración">Licenciatura en administración</option>
                                 </select>
                                 <datalist id = "carreras">
-                                    <option value = "Ingeniería  en Gestión Empresarial">
-                                    <option value = "Ingeniería  en Sis. Computacionales">
-                                    <option value = "Ingeniería  Civil">
-                                    <option value = "Ingeniería  Electrónica">
-                                    <option value = "Ingeniería  Mecánica">
-                                    <option value = "Ingeniería  Industria">
-                                    <option value = "Ingeniería  Química">
-                                    <option value = "Ingeniería  Electrica">
+                                    <option value = "Ingeniería en Gestión Empresarial">
+                                    <option value = "Ingeniería en Sis. Computacionales">
+                                    <option value = "Ingeniería Civil">
+                                    <option value = "Ingeniería Electrónica">
+                                    <option value = "Ingeniería Mecánica">
+                                    <option value = "Ingeniería Industria">
+                                    <option value = "Ingeniería Química">
+                                    <option value = "Ingeniería Electrica">
                                     <option value = "Licenciatura en administración">
                                 </datalist>
                             </div>
                         </div>
                         <!-- Correo y Contraseña -->
                         <div class="form-group mb-3">
-                            <label class="font-weight">Correo electrónico <span class="text-danger">*</span></label>
+                            <label class="font-weight">Correo electrónico: <span class="text-danger">*</span></label>
                             <input type="email" class="form-control"  name = "email" id = "email" placeholder="Ingresa tu correo electrónico">
                         </div>
                         <div class="form-group mb-3">
-                            <label class="font-weight">Contraseña <span class="text-danger">*</span></label>
+                            <label class="font-weight">Contraseña: <span class="text-danger">*</span></label>
                             <input type="password" class="form-control" name = "pass" id = "password" placeholder="Ingresa una contraseña">
                         </div>
+                        <!-- Datos estadísticos -->
+
+                        <!-- Datos estadísticos -->
+                        <p class="text-muted mb-5"> Datos necesarios para fines estadísticos.</p>
+                        <!-- Género -->
+                        <div class="form-row mb-3">
+                            <label class="font-weight">Género: <span class="text-danger">*</span></label>
+                            <select type="text" class="custom-select" list = "generos" name = "genero" id = "genero">
+                            <option value="genero">Género...</option>
+                            <option value="Masculino">Masculino</option>
+                            <option value="Femenino">Femenino</option>
+
+                            </select>
+                            <datalist id = "generos">
+                                <option value = "Masculino">
+                                <option value = "Femenino">
+
+                            </datalist>
+                    </div>
+                        <!-- Lengua indigena -->
+                        <div class="form-group mb-3">
+                            <label class="font-weight">¿Hablas alguna lengua indígena?</label>
+                            <label class="font-weight">Menciónalo:</label>
+                            <input type="text" class="form-control" name = "lengua" id = "lengua" placeholder="Ingresa el nombre de la lengua indígena">
+                        </div>
+                        <!-- discapacidad -->
+                        <div class="form-group mb-3">
+                            <label class="font-weight">¿Tienes alguna discapacidad?</label>
+                            <label class="font-weight">Menciónalo:</label>
+                            <input type="text" class="form-control" name = "discapacidad" id = "discapacidad" placeholder="Ingresa el nombre de tú discapacidad">
+                        </div>
+                        <!-- actividades complementarias -->
+                        <div class="form-row mb-3">
+                            <label class="font-weight">¿Tienes todos tus créditos de las actividades complementarias? <span class="text-danger">*</span></label>
+                            <select type="text" class="custom-select" list = "actividades" name = "actividad" id = "actividad">
+                            <option value="actividades complementarias">actividades complementarias...</option>
+                            <option value="Pendiente">Pendiente</option>
+                            <option value="Completado">Completado</option>
+
+                            </select>
+                            <datalist id = "actividades">
+                                <option value = "Pendiente">
+                                <option value = "Completado">
+
+                            </datalist>
+                        </div>  
+                        <!-- Dependencia -->
+                        <div class="form-row mb-3">
+                                <label class="font-weight">Tipo de dependencia a realizar: <span class="text-danger">*</span></label>
+                                <select type="text" class="custom-select" list = "dependencias" name = "dependencia" id = "dependencia">
+                                <option value="Dependencia">Dependencia...</option>
+                                <option value="Gubernamental">Gubernamental</option>
+                                <option value="Federal">Federal</option>
+                                <option value="Estatal">Estatal</option>
+                                <option value="Asociación civil">Asociación civil</option>
+                                <option value="Otra">Otra</option>
+                                </select>
+                                <datalist id = "dependencias">
+                                    <option value = "Gubernamental">
+                                    <option value = "Federal">
+                                    <option value = "Estatal">
+                                    <option value = "Asociación civil">
+                                    <option value = "Otra">
+                                </datalist>
+                        </div>
+                        <!-- Período -->
+                        <div class="form-row mb-3">
+                            <label class="font-weight">Período: <span class="text-danger">*</span></label>
+                            <select type="text" class="custom-select" list = "periodos" name = "periodo" id = "periodo">
+                            <option value="Dependencia">Período...</option>
+                            <option value="enero-junio">Enero - Junio</option>
+                            <option value="agosto-diciembre">Agosto - Diciembre</option>
+
+                            </select>
+                            <datalist id = "periodos">
+                                <option value = "enero-junio">
+                                <option value = "agosto-diciembre">
+
+                            </datalist>
+                    </div>
+                        <!-- BOTONES (regresar y registrate) -->
+
+                        <!-- BOTONES (regresar y registrate) -->
                         <div class="form-group mb-5">
                             <div class="form-check">
                             

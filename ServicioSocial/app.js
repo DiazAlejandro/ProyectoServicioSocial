@@ -85,8 +85,10 @@ window.onload = function(){
 function actualizarEvidencia(){
     var userId    = localStorage.getItem('id'); //Recuperar el id del alumno
     var evidencia = document.getElementById('documentoEvidencia').value; //Guardar en una variable el enlace del alumno
+    var validacion = "Pendiente de Revision";
     firebase.database().ref('alumno/'+userId).update({
         documentoEvidencia:evidencia,
+        validacionEvidencia:validacion,
     }).catch(function(error){
         alert("Su documento no ha sido guardado con éxito. Intentelo mas tarde");
     });
@@ -98,8 +100,10 @@ function actualizarEvidencia(){
 function eliminarEvidencia(){
     var userId = localStorage.getItem('id');
     var evidencia = "Sin Añadir";
+    var validacion = "Sin Enviar";
     firebase.database().ref('alumno/'+userId).update({
         documentoEvidencia:evidencia,
+        validacionEvidencia:validacion,
     }).catch(function(error){
         alert("Su documento no ha sido borrado con éxito. Intentelo mas tarde");
     });

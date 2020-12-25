@@ -37,7 +37,6 @@
     firebase.analytics();
     </script>
 </head>
-
 <body>
     <div class="container"></div>
         <div class="row justify-content-center pt-5 mt-5 mr-1">
@@ -49,6 +48,10 @@
                             <div class="form-group ito-img">
                                   <img src="imagenes/ito.png" >
                             </div>
+                            <div class="form-group mx-sm-5">
+                                <a type="button" class="btn btn-default btn-sm width-100 btnP"  href="login.html" > Alumno</a>
+                                <a type="button" class="btn btn-default btn-sm width-100 btnP"  href="admin.html" > Administrador</a>
+                            </div> 
                                  <h1>Login Alumnos </h1> 
                                  
                              <div class="form-group mt-5 mx-sm-6" id = "correo" >
@@ -58,12 +61,12 @@
                                  <input type="password"  name = "pass" id = "password"  class="form-control Input" placeholder="Ingrese su contraseña"><br><br>
                              </div>
                              <div class="form-group mx-sm-5">
-                                 <button type="submit" class="btn btn-blue ingresar" onclick="loginAlumno()"><i class="fas fa-sign-in-alt"></i>   Login Alumno</button>
+                                 <button type="submit" class="btn btn-default btn-sm width-100 btnP" onclick="loginAlumno()"><i class="fas fa-sign-in-alt"></i>   Login Alumno</button>
                              </div> 
                              <div>
-                                 <a class="reg" href="/index.html">Regresar</a>
+                                 <a class="reg" href="/index_0.html">Regresar</a>
                              </div>
-                        </div> 
+                             </div> 
                         <script src = "app.js"></script>  
                     </div>
              </div>  

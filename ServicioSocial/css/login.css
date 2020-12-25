@@ -44,8 +44,8 @@ h1{
 
 .ito-img img{
     width: -100xp;
-    height: 140px; 
-    margin-top:-80px;
+    height: 150px; 
+    margin-top:-120px;
     border: radius 10;
     top:-90px;
     padding-right: 10px;
@@ -74,4 +74,17 @@ h1{
     color:white;
     font-size:18px;
 }
-
+.btn-default{
+    padding: 1rem 5rem;
+}
+.btnP{
+    background: rgb(1, 1, 109);
+    color: rgb(255, 255, 255);
+    font-size:18px;
+    padding: 1rem 2rem;
+    border-radius: 5rem;
+    min-width: 5rem;
+    padding-left: -20px;
+    margin-top:-10px;
+    
+}

@@ -50,26 +50,38 @@ function loginAlumno(){
 function logoutAlumno(){
     firebase.auth().signOut().then(function() {
         window.location.replace("/index.html");
-      }).catch(function(error) {
-        // An error happened.
-      });     
+    }).catch(function(error) {
+    // An error happened.
+    });     
 }
 
 //Cargar la información del usuario de acuerdo al id de su logeo
+
 function mostrarInformacion(){
     var userId = localStorage.getItem('id');
         firebase.database().ref('alumno/'+userId).once('value').then(function(snapshot){
+            var str = "Kardex Calificaciones";
             var nombre = (snapshot.val() && snapshot.val().studentName);
             var apell = (snapshot.val() && snapshot.val().studentApellidos);
             var noControl = (snapshot.val() && snapshot.val().studentNoctrl);
             var carrera = (snapshot.val() && snapshot.val().studentCarrera);
-            var documentoEvidencia = (snapshot.val() && snapshot.val().documentoEvidencia);
+            var revEvidencia = (snapshot.val() && snapshot.val().validacionEvidencia);
+
+                //Recupera el enlace que se encuentra en la BD
+                var docEv = (snapshot.val() && snapshot.val().documentoEvidencia);
+            var documentoEvidencia; //Variable que se mostrará en el HTML
+            if (docEv == "Sin Añadir"){
+                documentoEvidencia = "Sin añadir";    //Esto aparece en HTML cuando no hay documento       
+            }else{
+                documentoEvidencia = str.link(docEv); //.link convierte en enlace el dato recuperado de la BD
+            }
             //document.getElementById('idEtiquetaAmostrarEnHTML').innerHTML = varible;
             document.getElementById('nombre').innerHTML = nombre;
             document.getElementById('apellido').innerHTML = apell;
             document.getElementById('carrera').innerHTML = carrera;
             document.getElementById('noctrl').innerHTML = noControl;
             document.getElementById('evidencia').innerHTML = documentoEvidencia;
+            document.getElementById('revisionEvidencia').innerHTML = revEvidencia;    
         });
 }
 
@@ -85,7 +97,7 @@ window.onload = function(){
 function actualizarEvidencia(){
     var userId    = localStorage.getItem('id'); //Recuperar el id del alumno
     var evidencia = document.getElementById('documentoEvidencia').value; //Guardar en una variable el enlace del alumno
-    var validacion = "Pendiente de Revision";
+    var validacion = "Pendiente de Revisión";
     firebase.database().ref('alumno/'+userId).update({
         documentoEvidencia:evidencia,
         validacionEvidencia:validacion,
@@ -194,6 +206,3 @@ function eliminarTarjetaControl(){
     location.reload(); //Actualizar la pagina automáticamente
     document.getElementById("doc3").value = ""; //Limpia el campo cada que se hace la operación
 }
-
-
-

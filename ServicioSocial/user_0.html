@@ -52,10 +52,12 @@
     
     <!--Etiquetas para la solicitud-->
     <label>Ingresar en este apartado su documento (Kardex de Calificaciones) => </label> <br>
-    <a id = "evidencia" ></a>
+    <a id = "evidencia" onclick="open()" ></a>
     <input type="text" name = "documentoEvidencia" id = "documentoEvidencia" placeholder="Ingrese enlace de su Kardex">
     <button onclick="actualizarEvidencia()">Guardar</button>
     <button onclick="eliminarEvidencia()">Eliminar</button><br><br>
+    <label>Status de la Revisión: </label> <label id = "revisionEvidencia"></label><br>
+
 </body>
 
 </html>

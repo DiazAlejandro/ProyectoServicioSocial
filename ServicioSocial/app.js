@@ -33,7 +33,9 @@ function loginAlumno(){
     var password = document.getElementById('password').value;
     firebase.auth().signInWithEmailAndPassword(email,password).then(function(){
         var id = firebase.auth().currentUser.uid;
-        window.location.replace("/user.html");
+        var userId = localStorage.getItem('id');
+        
+        window.location.replace("/user_0.html");
         localStorage.setItem('id',id);
     }).catch(function(error){
         var errorCode = error.code;
@@ -81,8 +83,22 @@ function mostrarInformacion(){
             document.getElementById('carrera').innerHTML = carrera;
             document.getElementById('noctrl').innerHTML = noControl;
             document.getElementById('evidencia').innerHTML = documentoEvidencia;
-            document.getElementById('revisionEvidencia').innerHTML = revEvidencia;    
+            document.getElementById('revisionEvidencia').innerHTML = revEvidencia;   
+            
+            //Datos de la documentación completa
+            var solicitud = (snapshot.val() && snapshot.val().documentoSolicitud);
+            var dSolicitud;
+            if (dSolicitud == "Sin Añadir"){ dSolicitud = "Sin añadir"; console.log(solicitud)}
+                else dSolicitud = str.link(solicitud);
+            document.getElementById('solicitud').innerHTML = dSolicitud;
         });
+}
+
+function documentosAlumno(){
+    var userId = localStorage.getItem('id');
+    firebase.database().ref('alumno/'+userId).once('value').then(function(snapshot){
+
+    });
 }
 
 //Llamada automática, esta funcion permite que se ejecute dentro del 
@@ -126,30 +142,30 @@ function eliminarEvidencia(){
 
 //***********************************************************************************************************/
 //Docuemento 1
+var notAdd = "Sin Añadir";
 function actualizarSolicitud(){
     var userId = localStorage.getItem('id');
-    var doc1 = document.getElementById('doc1').value;
+    var doc1 = document.getElementById('hSolicitud').value;
     alert("Documento Guardado");
     firebase.database().ref('alumno/'+userId).update({
-        documento1:doc1,
+        documentoSolicitud:doc1,
     }).catch(function(error){
         alert("Su documento no ha sido guardado con éxito. Intentelo mas tarde");
     });
     location.reload(); //Actualizar la pagina automáticamente
-    document.getElementById("doc1").value = ""; //Limpia el campo cada que se hace la operación
+    document.getElementById("hSolicitud").value = ""; //Limpia el campo cada que se hace la operación
 }
 
 function eliminarSolicitud(){
     var userId = localStorage.getItem('id');
-    var doc111 = "Sin Añadir";
-    alert("Documento Eliminado");
     firebase.database().ref('alumno/'+userId).update({
-        documento1:doc111,
+        documentoSolicitud:notAdd,
     }).catch(function(error){
         alert("Su documento no ha sido guardado con éxito. Intentelo mas tarde");
     });
+    alert("Documento Eliminado");
     location.reload(); //Actualizar la pagina automáticamente
-    document.getElementById("doc1").value = ""; //Limpia el campo cada que se hace la operación
+    document.getElementById("hSolicitud").value = ""; //Limpia el campo cada que se hace la operación
 }
 
 //Docuemento 2

@@ -170,12 +170,51 @@ function consultarDocumentos(){
         var documentoEva; //Variable que se mostrará en el HTML
             if (docEva == "Sin Añadir" || docEva == "undefined"){
                 documentoEva = "Sin añadir";    //Esto aparece en HTML cuando no hay documento  
-                document.getElementById('inputReporteB').style.display = 'inline';
+                document.getElementById('inputEvaluacion').style.display = 'inline';
             }else{
                 documentoEva = strEva.link(docEva); //.link convierte en enlace el dato recuperado de la BD
-                document.getElementById('inputReporteB').style.display = 'none'; //Deshabilita input
+                document.getElementById('inputEvaluacion').style.display = 'none'; //Deshabilita input
             }
         document.getElementById('formatoEvaluacion').innerHTML = documentoEva;
+
+        //Operaciones para el manejo de la Evaluacion
+        var strAuEva = "Formato Auto-Evaluación";
+        var docAuEva = (snapshot.val() && snapshot.val().documentoAutoEv);
+        var documentoAuEva; //Variable que se mostrará en el HTML
+            if (docAuEva == "Sin Añadir" || docAuEva == "undefined"){
+                documentoAuEva = "Sin añadir";    //Esto aparece en HTML cuando no hay documento  
+                document.getElementById('inputAutoEv').style.display = 'inline';
+            }else{
+                documentoAuEva = strAuEva.link(docAuEva); //.link convierte en enlace el dato recuperado de la BD
+                document.getElementById('inputAutoEv').style.display = 'none'; //Deshabilita input
+            }
+        document.getElementById('formatoAutoEv').innerHTML = documentoAuEva;
+
+        //Operaciones para el manejo de la Evaluación por Parte del Prestador
+        var strEvPres = "Formato Evaluación por Parte del Prestador";
+        var docEvPres  = (snapshot.val() && snapshot.val().documentoEvPrestador);
+        var documentoEvPres; //Variable que se mostrará en el HTML
+            if (docEvPres == "Sin Añadir" || docEvPres == "undefined"){
+                documentoEvPres = "Sin añadir";    //Esto aparece en HTML cuando no hay documento  
+                document.getElementById('inputEvPres').style.display = 'inline';
+            }else{
+                documentoEvPres = strEvPres.link(docEvPres); //.link convierte en enlace el dato recuperado de la BD
+                document.getElementById('inputEvPres').style.display = 'none'; //Deshabilita input
+            }
+        document.getElementById('formatoEvPres').innerHTML = documentoEvPres;
+
+         //Operaciones para el manejo de la Constancia
+         var strCons = "Constancia Terminación";
+         var docCons = (snapshot.val() && snapshot.val().documentoConstancia);
+         var documentoCons; //Variable que se mostrará en el HTML
+             if (docCons == "Sin Añadir" || docCons == "undefined"){
+                documentoCons = "Sin añadir";    //Esto aparece en HTML cuando no hay documento  
+                document.getElementById('inputconstanciaTerminacion').style.display = 'inline';
+             }else{
+                documentoCons = strCons.link(docCons); //.link convierte en enlace el dato recuperado de la BD
+                document.getElementById('inputconstanciaTerminacion').style.display = 'none'; //Deshabilita input
+             }
+         document.getElementById('constanciaTerminacion').innerHTML = documentoCons;
     });
 }
 //Llamada automática, esta funcion permite que se ejecute dentro del 
@@ -392,4 +431,91 @@ function eliminarEvaluacion(){
     alert("Documento Eliminado");
     location.reload(); //Actualizar la pagina automáticamente
     document.getElementById('inputEvaluacion').value = ""; //Limpia el campo cada que se hace la operación
+}
+
+//******************************************************************************************/
+//Documento = FormatoAutoEvaluación
+function actualizarAutoEv(){
+    var userId  = localStorage.getItem('id'); //Recuperar el id del alumno
+    var autoEva = document.getElementById('inputAutoEv').value; //Guardar en una variable el enlace del alumno
+    if (autoEva != ""){
+        firebase.database().ref('alumno/'+userId).update({
+            documentoAutoEv:autoEva,
+        }).catch(function(error){
+            alert("Su documento no ha sido guardado con éxito. Intentelo mas tarde");
+        }); 
+        alert("Documento de Evidencia - Guardado");
+        location.reload(); //Actualizar la pagina automáticamente
+        document.getElementById('inputAutoEv').value = ""; //Limpia el campo cada que se hace la operación
+    }
+}
+
+function eliminarAutoEv(){
+    var userId = localStorage.getItem('id');
+    firebase.database().ref('alumno/'+userId).update({
+        documentoAutoEv:notAdd,
+    }).catch(function(error){
+        alert("Su documento no ha sido borrado con éxito. Intentelo mas tarde");
+    });
+    alert("Documento Eliminado");
+    location.reload(); //Actualizar la pagina automáticamente
+    document.getElementById('inputAutoEv').value = ""; //Limpia el campo cada que se hace la operación
+}
+
+//******************************************************************************************/
+//Documento = Evaluación por Parte del Prestador
+function actualizarEvPres(){
+    var userId     = localStorage.getItem('id'); //Recuperar el id del alumno
+    var autoEvPres = document.getElementById('inputEvPres').value; //Guardar en una variable el enlace del alumno
+    if (autoEvPres != ""){
+        firebase.database().ref('alumno/'+userId).update({
+            documentoEvPrestador:autoEvPres,
+        }).catch(function(error){
+            alert("Su documento no ha sido guardado con éxito. Intentelo mas tarde");
+        }); 
+        alert("Documento de Evidencia - Guardado");
+        location.reload(); //Actualizar la pagina automáticamente
+        document.getElementById('inputEvPres').value = ""; //Limpia el campo cada que se hace la operación
+    }
+}
+
+function eliminarEvPres(){
+    var userId = localStorage.getItem('id');
+    firebase.database().ref('alumno/'+userId).update({
+        documentoEvPrestador:notAdd,
+    }).catch(function(error){
+        alert("Su documento no ha sido borrado con éxito. Intentelo mas tarde");
+    });
+    alert("Documento Eliminado");
+    location.reload(); //Actualizar la pagina automáticamente
+    document.getElementById('inputEvPres').value = ""; //Limpia el campo cada que se hace la operación
+}
+
+//******************************************************************************************/
+//Documento = Constancia de Terminación
+function actualizarConstTer(){
+    var userId  = localStorage.getItem('id'); //Recuperar el id del alumno
+    var consTer = document.getElementById('inputconstanciaTerminacion').value; //Guardar en una variable el enlace del alumno
+    if (consTer != ""){
+        firebase.database().ref('alumno/'+userId).update({
+            documentoConstancia:consTer,
+        }).catch(function(error){
+            alert("Su documento no ha sido guardado con éxito. Intentelo mas tarde");
+        }); 
+        alert("Documento de Evidencia - Guardado");
+        location.reload(); //Actualizar la pagina automáticamente
+        document.getElementById('inputconstanciaTerminacion').value = ""; //Limpia el campo cada que se hace la operación
+    }
+}
+
+function eliminarConstTer(){
+    var userId = localStorage.getItem('id');
+    firebase.database().ref('alumno/'+userId).update({
+        documentoConstancia:notAdd,
+    }).catch(function(error){
+        alert("Su documento no ha sido borrado con éxito. Intentelo mas tarde");
+    });
+    alert("Documento Eliminado");
+    location.reload(); //Actualizar la pagina automáticamente
+    document.getElementById('inputconstanciaTerminacion').value = ""; //Limpia el campo cada que se hace la operación
 }

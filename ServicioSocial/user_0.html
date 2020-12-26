@@ -50,7 +50,7 @@
     <!--Etiquetas para la solicitud-->
     <label>Ingresar en este apartado su documento (Kardex de Calificaciones) => </label> <br>
     <a id = "evidencia" onclick="open()" ></a>
-    <input type="text" name = "documentoEvidencia" id = "documentoEvidencia" placeholder="Ingrese enlace de su Kardex">
+    <input type="text" style="display:inline" name = "documentoEvidencia" id = "documentoEvidencia" placeholder="Ingrese enlace de su Kardex">
     <button onclick="actualizarEvidencia()">Guardar</button>
     <button onclick="eliminarEvidencia()">Eliminar</button><br><br>
     <label>Status de la Revisión: </label> <label id = "revisionEvidencia"></label><br>
@@ -62,12 +62,46 @@
             <!--Etiquetas para la solicitud-->
             <label>1. Solicitud de Servicio Social => </label>
             <a id = "solicitud" ></a>
-            <input type="text" name = "inputSolicitud" id = "inputSolicitud" placeholder="Ingrese su solicitud">
+            <input type="url" style="display:inline" name = "inputSolicitud" id = "inputSolicitud" placeholder="Ingrese Solicitud">
             <button onclick="actualizarSolicitud()">Guardar</button>
             <button onclick="eliminarSolicitud()">Eliminar</button><br><br>
-        </div>
-        <div class="panel-footer">Pie del panel</div>
-      </div>
+
+            <!--Etiquetas para la Carta Compromiso-->
+            <label>2. Carta Compromiso => </label>
+            <a id = "cartaCompromiso" ></a>
+            <input type="url" style="display:inline" name = "inputCartaCom" id = "inputCartaCom" placeholder="Ingrese Carta Compromiso">
+            <button onclick="actualizarCartaComp()">Guardar</button>
+            <button onclick="eliminarCartaComp()">Eliminar</button><br><br>
+
+            <!--Etiquetas para la Tarjeta de Control-->
+            <label>3. Tarjeta de Control => </label>
+            <a id = "tarjetaControl" ></a>
+            <input type="url" style="display:inline" name = "inputTarjetaCtrl" id = "inputTarjetaCtrl" placeholder="Ingrese Tarjeta Control">
+            <button onclick="actualizarTarjetaCtrl()">Guardar</button>
+            <button onclick="eliminarTarjetaCtrl()">Eliminar</button><br><br>
+
+            <!--Etiquetas para la Carta de Asignación-->
+            <label>4. Carta de asignación => </label>
+            <a id = "cartaAsignacion" ></a>
+            <input type="url" style="display:inline" name = "inputCartaAsig" id = "inputCartaAsig" placeholder="Ingrese Carta de Asignacion">
+            <button onclick="actualizarCartaAsignacion()">Guardar</button>
+            <button onclick="eliminarCartaAsignacion()">Eliminar</button><br><br>
+
+            <!--Etiquetas para la Reporte Bimestral-->
+            <label>6. Reporte Bimestral => </label>
+            <a id = "reporteBimestral" ></a>
+            <input type="url" style="display:inline" name = "inputReporteB" id = "inputReporteB" placeholder="Ingrese Reporte Bimestral">
+            <button onclick="actualizarReporteB()">Guardar</button>
+            <button onclick="eliminarReporteB()">Eliminar</button><br><br>
+
+            <!--Etiquetas para la Formato de Evaluación-->
+            <label>7. Formato de Evaluación => </label>
+            <a id = "formatoEvaluacion" ></a>
+            <input type="url" style="display:inline" name = "inputEvaluacion" id = "inputEvaluacion" placeholder="Ingrese Reporte Bimestral">
+            <button onclick="actualizarEvaluacion()">Guardar</button>
+            <button onclick="eliminarEvaluacion()">Eliminar</button><br><br>
+        </div> 
+    </div>
 </body>
 
 </html>

@@ -51,6 +51,8 @@ function registrarAlumno(e) {
             studentDependencia:dependencia,
             studentPeriodo:periodo
         });
+        registroExitoso();
+        
     }).catch(function(error){
         //  alert("Datos Incompletos");
         var errorCode = error.code;
@@ -58,11 +60,31 @@ function registrarAlumno(e) {
         console.log(errorCode);
         console.log(errorMessage);
     });
+    
     //console.log(email+password);
+    
 }
 
 function activar() {
     var seleccionado=document.getElementsByName('chec');
     document.getElementById('botoncito').disabled = !document.getElementById('botoncito').disabled;
 
+}
+
+
+
+function registroExitoso(){
+    
+        var content=document.getElementById('xx');
+        content.innerHTML=`
+        <h1  class="text-center mt-5">Registro Exitoso</h1>
+            
+        <div class="row w-100 align-items-center mt-5">
+            <div class="col text-center">
+                <a class="btn btn-success  p-3 text-white" href="login.html">Ingresar</a>
+            </div>	
+        </div>
+        `;
+       
+    
 }

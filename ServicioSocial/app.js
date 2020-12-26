@@ -46,8 +46,6 @@ function loginAlumno(){
     });
 }
 
-
-
 //Cerrar la sesión 
 function logoutAlumno(){
     firebase.auth().signOut().then(function() {
@@ -58,7 +56,6 @@ function logoutAlumno(){
 }
 
 //Cargar la información del usuario de acuerdo al id de su logeo
-
 function mostrarInformacion(){
     var userId = localStorage.getItem('id');
         firebase.database().ref('alumno/'+userId).once('value').then(function(snapshot){
@@ -85,22 +82,32 @@ function mostrarInformacion(){
             document.getElementById('evidencia').innerHTML = documentoEvidencia;
             document.getElementById('revisionEvidencia').innerHTML = revEvidencia;   
             
-            //Datos de la documentación completa
-            var solicitud = (snapshot.val() && snapshot.val().documentoSolicitud);
-            var dSolicitud;
-            if (dSolicitud == "Sin Añadir"){ dSolicitud = "Sin añadir"; console.log(solicitud)}
-                else dSolicitud = str.link(solicitud);
-            document.getElementById('solicitud').innerHTML = dSolicitud;
+            if (revEvidencia == "Pendiente de Revisión"){
+                mostrarElementos();
+                consultarDocumentos();
+            }
         });
 }
 
-function documentosAlumno(){
-    var userId = localStorage.getItem('id');
-    firebase.database().ref('alumno/'+userId).once('value').then(function(snapshot){
-
-    });
+function mostrarElementos(){
+    document.getElementById('accesoDocumentos').style.display = 'block';
 }
 
+function consultarDocumentos(){
+    var userId = localStorage.getItem('id');
+    firebase.database().ref('alumno/'+userId).once('value').then(function(snapshot){
+        var strSol = "Solicitud Serv. Social";
+        var docSol = (snapshot.val() && snapshot.val().documentoSolitud);
+        var documentoSol; //Variable que se mostrará en el HTML
+            if (docSol == "Sin Añadir" || docSol == "undefined"){
+                documentoSol = "Sin añadir";    //Esto aparece en HTML cuando no hay documento       
+            }else{
+                documentoSol = strSol.link(docSol); //.link convierte en enlace el dato recuperado de la BD
+            }
+        document.getElementById('solicitud').innerHTML = documentoSol;
+    });
+
+}
 //Llamada automática, esta funcion permite que se ejecute dentro del 
 //archivo html sin necesidad de tener un evento de tipo onClick().
 window.onload = function(){
@@ -141,84 +148,29 @@ function eliminarEvidencia(){
 }
 
 //***********************************************************************************************************/
-//Docuemento 1
+//Docuemento: Solicitud
 var notAdd = "Sin Añadir";
 function actualizarSolicitud(){
-    var userId = localStorage.getItem('id');
-    var doc1 = document.getElementById('hSolicitud').value;
-    alert("Documento Guardado");
+    var userId    = localStorage.getItem('id'); //Recuperar el id del alumno
+    var solicitud = document.getElementById('inputSolicitud').value; //Guardar en una variable el enlace del alumno
     firebase.database().ref('alumno/'+userId).update({
-        documentoSolicitud:doc1,
+        documentoSolitud:solicitud,
     }).catch(function(error){
         alert("Su documento no ha sido guardado con éxito. Intentelo mas tarde");
     });
+    alert("Documento de Evidencia - Guardado");
     location.reload(); //Actualizar la pagina automáticamente
-    document.getElementById("hSolicitud").value = ""; //Limpia el campo cada que se hace la operación
+    document.getElementById('inputSolicitud').value = ""; //Limpia el campo cada que se hace la operación
 }
 
 function eliminarSolicitud(){
     var userId = localStorage.getItem('id');
     firebase.database().ref('alumno/'+userId).update({
-        documentoSolicitud:notAdd,
+        documentoSolitud:notAdd,
     }).catch(function(error){
-        alert("Su documento no ha sido guardado con éxito. Intentelo mas tarde");
+        alert("Su documento no ha sido borrado con éxito. Intentelo mas tarde");
     });
     alert("Documento Eliminado");
     location.reload(); //Actualizar la pagina automáticamente
-    document.getElementById("hSolicitud").value = ""; //Limpia el campo cada que se hace la operación
-}
-
-//Docuemento 2
-function actualizarCartaCompromiso(){
-    var userId = localStorage.getItem('id');
-    var doc2 = document.getElementById('doc2').value;
-    alert("Documento Guardado");
-    firebase.database().ref('alumno/'+userId).update({
-        documento2:doc2,
-    }).catch(function(error){
-        alert("Su documento no ha sido guardado con éxito. Intentelo mas tarde");
-    });
-    location.reload(); //Actualizar la pagina automáticamente
-    document.getElementById("doc2").value = ""; //Limpia el campo cada que se hace la operación
-}
-
-function eliminarCartaCompromiso(){
-    var userId = localStorage.getItem('id');
-    var doc222 = "Sin Añadir";
-    alert("Documento Eliminado");
-    firebase.database().ref('alumno/'+userId).update({
-        documento2:doc222,
-    }).catch(function(error){
-        alert("Su documento no ha sido eliminado con éxito. Intentelo mas tarde");
-    });
-    location.reload(); //Actualizar la pagina automáticamente
-    document.getElementById("doc2").value = ""; //Limpia el campo cada que se hace la operación
-}
-  
-
-//Docuemento 3
-function actualizarTarjetaControl(){
-    var userId = localStorage.getItem('id');
-    var doc3 = document.getElementById('doc3').value;
-    alert("Documento Guardado");
-    firebase.database().ref('alumno/'+userId).update({
-        documento3:doc3,
-    }).catch(function(error){
-        alert("Su documento no ha sido guardado con éxito. Intentelo mas tarde");
-    });
-    location.reload(); //Actualizar la pagina automáticamente
-    document.getElementById("doc3").value = ""; //Limpia el campo cada que se hace la operación
-}
-
-function eliminarTarjetaControl(){
-    var userId = localStorage.getItem('id');
-    var doc333 = "Sin Añadir";
-    alert("Documento Eliminado");
-    firebase.database().ref('alumno/'+userId).update({
-        documento3:doc333,
-    }).catch(function(error){
-        alert("Su documento no ha sido eliminado con éxito. Intentelo mas tarde");
-    });
-    location.reload(); //Actualizar la pagina automáticamente
-    document.getElementById("doc3").value = ""; //Limpia el campo cada que se hace la operación
+    document.getElementById('inputSolicitud').value = ""; //Limpia el campo cada que se hace la operación
 }

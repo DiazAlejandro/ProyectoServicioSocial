@@ -1,0 +1,125 @@
+body {
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.borde{
+    
+    text-align: center;
+    height: 80px;
+}
+
+.borde2{
+    
+    text-align: center;
+    height: 270px;
+}
+
+.logoTecNM-brand{
+    margin-top: 10px;
+    max-width: 90px;
+}
+
+.logo-brand{
+    margin-top: 10px;
+    max-width: 60px;
+}
+
+.logoSep-brand{
+    margin-top: 25px;
+    max-width: 90px;
+}
+
+.navbar {
+    background-color:  #1B396A;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .75);
+    min-height: 70px;
+}
+
+.nav-link{
+    color: #ffffff;
+}
+
+.navbar-brand{
+    font-family: 'Titillium Web', sans-serif;
+    color: #ffffff;
+    
+}
+
+.logoEdu-brand{
+    margin-top: 30%;
+    max-width: 300px;
+}
+
+.logoEsc-brand{
+    margin-top: 15%;
+    max-width: 150px;
+}
+
+div#contacto{
+    color: #ffffff;
+
+}
+div#diapositivas{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+}
+
+.lbl{
+    
+    display: inline-block;
+    width: 65px;
+    height: 33px;
+    background: #979797;
+    border-radius: 100px;
+    cursor: pointer;
+    position: relative;
+    transition: .2s;
+}
+
+.lbl::after{
+    content: '';
+    display: block;
+    width: 25px;
+    height: 25px;
+    background: #eee;
+    border-radius: 100px;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    transition: .2s;
+}
+
+
+
+.switchB:checked + .lbl::after{
+    left: 36px;
+}
+
+.switchB:checked + .lbl{
+    background: #1B396A;
+}
+
+.switchB{
+    display: none;
+}
+
+#tabla{
+    margin-top: 100px;
+}
+
+
+
+
+.bg-blue{ background-color: #1B396A;}
+
+.loader {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: url('images/loading1.gif') 50% 50% no-repeat rgb(249,249,249);
+    opacity: .8;
+}

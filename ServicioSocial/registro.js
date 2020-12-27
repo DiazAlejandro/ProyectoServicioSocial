@@ -59,6 +59,7 @@ function registrarAlumno(e) {
         var errorMessage = error.errorMessage;
         console.log(errorCode);
         console.log(errorMessage);
+        registroFail();
     });
     
     //console.log(email+password);
@@ -71,20 +72,26 @@ function activar() {
 
 }
 
-
-
 function registroExitoso(){
-    
-        var content=document.getElementById('xx');
+        var content = document.getElementById('xx');
         content.innerHTML=`
-        <h1  class="text-center mt-5">Registro Exitoso</h1>
-            
+        <h1  class="text-center mt-5">Registro Exitoso</h1>  
         <div class="row w-100 align-items-center mt-5">
             <div class="col text-center">
                 <a class="btn btn-success  p-3 text-white" href="login.html">Ingresar</a>
             </div>	
         </div>
-        `;
-       
-    
+        `;  
+}
+
+function registroFail(){
+    var content = document.getElementById('xx');
+    content.innerHTML=`
+    <h1  class="text-center mt-5">Registro Fallido</h1>  
+    <div class="row w-100 align-items-center mt-5">
+        <div class="col text-center">
+            <a class="btn btn-success  p-3 text-white" href="index.html">Regresar</a>
+        </div>	
+    </div>
+    `;  
 }

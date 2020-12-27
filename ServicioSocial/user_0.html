@@ -54,11 +54,11 @@
     <button onclick="actualizarEvidencia()">Guardar</button>
     <button onclick="eliminarEvidencia()">Eliminar</button><br><br>
     <label>Status de la Revisión: </label> <label id = "revisionEvidencia"></label><br>
-    
-    <label>Esto aparece porque está pendiente de revision </label> <label id = "val"></label><br><br>
+
 
     <div style="display:none" id = "accesoDocumentos" class="panel panel-default"> 
         <div class="panel-body">
+            <h2>Expediente del Alumno </h2>
             <!--Etiquetas para la solicitud-->
             <label>1. Solicitud de Servicio Social => </label>
             <a id = "solicitud" ></a>
@@ -73,19 +73,19 @@
             <button onclick="actualizarCartaComp()">Guardar</button>
             <button onclick="eliminarCartaComp()">Eliminar</button><br><br>
 
-            <!--Etiquetas para la Tarjeta de Control-->
-            <label>3. Tarjeta de Control => </label>
-            <a id = "tarjetaControl" ></a>
-            <input type="url" style="display:inline" name = "inputTarjetaCtrl" id = "inputTarjetaCtrl" placeholder="Ingrese Tarjeta Control">
-            <button onclick="actualizarTarjetaCtrl()">Guardar</button>
-            <button onclick="eliminarTarjetaCtrl()">Eliminar</button><br><br>
-
             <!--Etiquetas para la Carta de Asignación-->
-            <label>4. Carta de asignación => </label>
+            <label>3. Carta de asignación => </label>
             <a id = "cartaAsignacion" ></a>
             <input type="url" style="display:inline" name = "inputCartaAsig" id = "inputCartaAsig" placeholder="Ingrese Carta de Asignacion">
             <button onclick="actualizarCartaAsignacion()">Guardar</button>
             <button onclick="eliminarCartaAsignacion()">Eliminar</button><br><br>
+
+            <!--Etiquetas para la Tarjeta de Control-->
+            <label>4. Tarjeta de Control => </label>
+            <a id = "tarjetaControl" ></a>
+            <input type="url" style="display:inline" name = "inputTarjetaCtrl" id = "inputTarjetaCtrl" placeholder="Ingrese Tarjeta Control">
+            <button onclick="actualizarTarjetaCtrl()">Guardar</button>
+            <button onclick="eliminarTarjetaCtrl()">Eliminar</button><br><br>
 
             <!--Etiquetas para la Reporte Bimestral-->
             <label>6. Reporte Bimestral => </label>
@@ -121,6 +121,17 @@
             <input type="url" style="display:inline" name = "inputconstanciaTerminacion" id = "inputconstanciaTerminacion" placeholder="Ingrese Formato Evaluación por Parte del Prestador">
             <button onclick="actualizarConstTer()">Guardar</button>
             <button onclick="eliminarConstTer()">Eliminar</button><br><br>
+
+            <h3>Documentos Adicionales</h3>
+            <label>*Carta de Presentación => </label>
+            <a>***Se te notificará cuando debas acudir a la Institución</a> <br><br>
+
+            <label>*Carta de Aceptación => </label>
+            <a>***Documento Generado por la Institución</a> <br><br>
+
+            <label>*Plan de Trabajo => </label>
+            <a>***Conforme a las actividades a realizar</a> <br><br>
+
         </div> 
     </div>
 </body>

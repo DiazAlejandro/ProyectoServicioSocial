@@ -69,7 +69,7 @@ function mostrarInformacion(){
                 //Recupera el enlace que se encuentra en la BD
                 var docEv = (snapshot.val() && snapshot.val().documentoEvidencia);
             var documentoEvidencia; //Variable que se mostrará en el HTML
-            if (docEv == "Sin Añadir"){
+            if (docEv == "Sin Añadir" || docEv == null){
                 documentoEvidencia = "Sin añadir";    //Esto aparece en HTML cuando no hay documento   
                 document.getElementById('documentoEvidencia').style.display = 'inline';    
             }else{
@@ -84,7 +84,7 @@ function mostrarInformacion(){
             document.getElementById('evidencia').innerHTML = documentoEvidencia;
             document.getElementById('revisionEvidencia').innerHTML = revEvidencia;   
             
-            if (revEvidencia == "Pendiente de Revisión"){
+            if (revEvidencia == "aceptado"){
                 mostrarElementos();
                 consultarDocumentos();
             }
@@ -103,7 +103,7 @@ function consultarDocumentos(){
         var strSol = "Solicitud Serv. Social";
         var docSol = (snapshot.val() && snapshot.val().documentoSolicitud);
         var documentoSol; //Variable que se mostrará en el HTML
-            if (docSol == "Sin Añadir" || docSol == "undefined"){
+            if (docSol == "Sin Añadir" || docSol == null){
                 documentoSol = "Sin añadir";    //Esto aparece en HTML cuando no hay documento  
                 document.getElementById('inputSolicitud').style.display = 'inline';
             }else{
@@ -116,7 +116,7 @@ function consultarDocumentos(){
         var strCarC = "Carta Compromiso";
         var docCarC = (snapshot.val() && snapshot.val().documentoCartaCompromiso);
         var documentoCartaC; //Variable que se mostrará en el HTML
-            if (docCarC == "Sin Añadir" || docCarC == "undefined"){
+            if (docCarC == "Sin Añadir" || docCarC == null){
                 documentoCartaC = "Sin añadir";    //Esto aparece en HTML cuando no hay documento  
                 document.getElementById('inputCartaCom').style.display = 'inline';
             }else{
@@ -129,7 +129,7 @@ function consultarDocumentos(){
         var strTarC = "Tarjeta de Control";
         var docTarC = (snapshot.val() && snapshot.val().documentoTarjetaCtrl);
         var documentoTarjetaC; //Variable que se mostrará en el HTML
-            if (docTarC == "Sin Añadir" || docTarC == "undefined"){
+            if (docTarC == "Sin Añadir" || docTarC == null){
                 documentoTarjetaC = "Sin añadir";    //Esto aparece en HTML cuando no hay documento  
                 document.getElementById('inputTarjetaCtrl').style.display = 'inline';
             }else{
@@ -142,7 +142,7 @@ function consultarDocumentos(){
         var strCartaAs = "Tarjeta de Control";
         var docCarA = (snapshot.val() && snapshot.val().documentoCartaAsignacion);
         var documentoCartaAs; //Variable que se mostrará en el HTML
-            if (docCarA == "Sin Añadir" || docCarA == "undefined"){
+            if (docCarA == "Sin Añadir" || docCarA == null){
                 documentoCartaAs = "Sin añadir";    //Esto aparece en HTML cuando no hay documento  
                 document.getElementById('inputCartaAsig').style.display = 'inline';
             }else{
@@ -155,7 +155,7 @@ function consultarDocumentos(){
         var strRepB = "Reporte Bimestral";
         var docRepB = (snapshot.val() && snapshot.val().documentoReporteB);
         var documentoRepB; //Variable que se mostrará en el HTML
-            if (docRepB == "Sin Añadir" || docRepB == "undefined"){
+            if (docRepB == "Sin Añadir" || docRepB == null){
                 documentoRepB = "Sin añadir";    //Esto aparece en HTML cuando no hay documento  
                 document.getElementById('inputReporteB').style.display = 'inline';
             }else{
@@ -168,7 +168,7 @@ function consultarDocumentos(){
         var strEva = "Formato Evaluación";
         var docEva = (snapshot.val() && snapshot.val().documentoEvaluacion);
         var documentoEva; //Variable que se mostrará en el HTML
-            if (docEva == "Sin Añadir" || docEva == "undefined"){
+            if (docEva == "Sin Añadir" || docEva == null){
                 documentoEva = "Sin añadir";    //Esto aparece en HTML cuando no hay documento  
                 document.getElementById('inputEvaluacion').style.display = 'inline';
             }else{
@@ -181,7 +181,7 @@ function consultarDocumentos(){
         var strAuEva = "Formato Auto-Evaluación";
         var docAuEva = (snapshot.val() && snapshot.val().documentoAutoEv);
         var documentoAuEva; //Variable que se mostrará en el HTML
-            if (docAuEva == "Sin Añadir" || docAuEva == "undefined"){
+            if (docAuEva == "Sin Añadir" || docAuEva == null){
                 documentoAuEva = "Sin añadir";    //Esto aparece en HTML cuando no hay documento  
                 document.getElementById('inputAutoEv').style.display = 'inline';
             }else{
@@ -194,7 +194,7 @@ function consultarDocumentos(){
         var strEvPres = "Formato Evaluación por Parte del Prestador";
         var docEvPres  = (snapshot.val() && snapshot.val().documentoEvPrestador);
         var documentoEvPres; //Variable que se mostrará en el HTML
-            if (docEvPres == "Sin Añadir" || docEvPres == "undefined"){
+            if (docEvPres == "Sin Añadir" || docEvPres == null){
                 documentoEvPres = "Sin añadir";    //Esto aparece en HTML cuando no hay documento  
                 document.getElementById('inputEvPres').style.display = 'inline';
             }else{
@@ -207,7 +207,7 @@ function consultarDocumentos(){
          var strCons = "Constancia Terminación";
          var docCons = (snapshot.val() && snapshot.val().documentoConstancia);
          var documentoCons; //Variable que se mostrará en el HTML
-             if (docCons == "Sin Añadir" || docCons == "undefined"){
+             if (docCons == "Sin Añadir" || docCons == null){
                 documentoCons = "Sin añadir";    //Esto aparece en HTML cuando no hay documento  
                 document.getElementById('inputconstanciaTerminacion').style.display = 'inline';
              }else{

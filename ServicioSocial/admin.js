@@ -14,6 +14,14 @@ function loginAdmin(){
     });
 }
 
+function logoutAdmin(){
+    firebase.auth().signOut().then(function() {
+        window.location.replace("/index.html");
+    }).catch(function(error) {
+    // An error happened.
+    });     
+}
+
 function mostrarInformacion(){    
     var db = firebase.database();
     var ref = db.ref("alumno");

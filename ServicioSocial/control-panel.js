@@ -1,21 +1,17 @@
-window.onload = function(){
-    plugin1();
+window.onload = function(){    
+    validar();
+}
+
+function logoutAdmin(){
+    firebase.auth().signOut().then(function() {
+        window.location.replace("/index.html");
+    }).catch(function(error) {
+    // An error happened.
+    });     
 }
 
 function plugin1(){
-    const config = {
-        apiKey: "AIzaSyBjAqwgBh893FPDFLg1PEypTp2_e_Uh2qA",
-        authDomain: "servicio-social-d5a95.firebaseapp.com",
-        databaseURL: "https://servicio-social-d5a95-default-rtdb.firebaseio.com/",
-        projectId: "servicio-social-d5a95",
-        storageBucket: "servicio-social-d5a95.appspot.com",
-        messagingSenderId: "302681815081",
-        appId: "1:302681815081:web:f6649140f3fee89acb4438",
-        measurementId: "G-N4860PEFDP"
-    };
-
-    firebase.initializeApp(config);
-    firebase.analytics();
+    
 
     const db1 = firebase.database();
     coleccionAlumnos = db1.ref().child('alumno');
@@ -186,3 +182,30 @@ function aceptar(comp,noCo) {
     actualizacionData[`/${id}`]=data;
     coleccionAlumnos.update(actualizacionData);
 } 
+
+function validar (){
+    var config = {
+        apiKey: "AIzaSyBjAqwgBh893FPDFLg1PEypTp2_e_Uh2qA",
+        authDomain: "servicio-social-d5a95.firebaseapp.com",
+        databaseURL: "https://servicio-social-d5a95-default-rtdb.firebaseio.com/",
+        projectId: "servicio-social-d5a95",
+        storageBucket: "servicio-social-d5a95.appspot.com",
+        messagingSenderId: "302681815081",
+        appId: "1:302681815081:web:f6649140f3fee89acb4438",
+        measurementId: "G-N4860PEFDP"
+    };
+    
+    firebase.initializeApp(config);
+    firebase.analytics();
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+          // El usuario está logueado, realiza acciones aquí
+          plugin1();
+          console.log("Loggeado");
+        } else {
+             console.log("usuario nullo");
+             alert("Usuario No Autentificado, Inicie Sesión");
+             location.replace("/login.html");
+        }
+      });
+}

@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
 
     <script src="control-panel.js"></script> 
-    <script src="control-panel.js"></script>
+
     
     
 
@@ -53,18 +53,11 @@
 
     <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
 
-        <!--Loading-->>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script type="text/javascript">
-        $(window).load(function() {
-            $(".loader").fadeOut("slow");
-        });
-        </script>
+    
 
 </head>
 
 <body>
-    <div class="loader"></div>
     <div class="container">
         <div class="row">
             <div class="borde col-sm-4 d-none d-sm-block">
@@ -94,7 +87,8 @@
                         <a class="nav-link" href="#" id="home">Home </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html" id="registrarse" >Cerrar sesión</a>
+                        
+                        <a class="nav-link" onclick="logoutAdmin()" id="registrarse" >Cerrar sesión</a>
                     </li>
                 </ul>
             </div>
@@ -127,7 +121,9 @@
             <tbody id="tabla">
             </tbody>
         </table>
+        
     </div>
+    
     <h1></h1>
 
 
@@ -161,7 +157,7 @@
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
         crossorigin="anonymous"></script>
 
-    <script type="text/javascript" src="datatables/datatables.min.js"></script>
+
 
  
 

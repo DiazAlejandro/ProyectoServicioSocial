@@ -4,10 +4,11 @@ window.onload = function(){
 
 function logoutAdmin(){
     firebase.auth().signOut().then(function() {
-        window.location.replace("/index.html");
-    }).catch(function(error) {
-    // An error happened.
-    });     
+    window.replace("/login.html");
+  })
+  .catch(function(error) {
+    // An error happened
+  });  
 }
 
 function plugin1(){
@@ -130,7 +131,8 @@ function mostrarAlumnos({documentoSolicitud, studentActcomplementaria, studentAp
             <label class="lbl1" for="${studentNoctrl}"></label>
             </div></td>`    
 };
-
+var masculino = 0; 
+var femenino = 0;
 function aceptar(comp,noCo) {
     var cambio="aceptado";
     var id = comp.id;
@@ -162,6 +164,7 @@ function aceptar(comp,noCo) {
             var noCo = datos.child("studentNoctrl").val();
             var valiEvidencia = datos.child("validacionEvidencia").val();
             if(valiEvidencia=="aceptado"){cambio="rechazado"}
+
 
             data={studentActcomplementaria:complementaria,
                 documentoEvidencia:docEvidencia,

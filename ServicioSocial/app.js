@@ -109,7 +109,7 @@ function consultarDocumentos(){
         document.getElementById('tarjetaControl').innerHTML = documentoTarjetaC;
 
         //Operaciones para el manejo de la Carta Asignacion
-        var strCartaAs = "Tarjeta de Control";
+        var strCartaAs = "Carta de Asignación";
         var docCarA = (snapshot.val() && snapshot.val().documentoCartaAsignacion);
         var documentoCartaAs; //Variable que se mostrará en el HTML
             if (docCarA == "Sin Añadir" || docCarA == null){
@@ -186,7 +186,7 @@ function consultarDocumentos(){
              }
          document.getElementById('constanciaTerminacion').innerHTML = documentoCons;
 
-        //Operaciones para el manejo de la Constancia
+        //Operaciones para el manejo de la Carta Aceptación
         var strCarA = "Carta Aceptación";
         var docCarA = (snapshot.val() && snapshot.val().documentoCartaAceptacion);
         var documentoCarA; //Variable que se mostrará en el HTML
@@ -198,6 +198,19 @@ function consultarDocumentos(){
                 document.getElementById('inputCartaAceptacion').style.display = 'none'; //Deshabilita input
             }
         document.getElementById('cartaAceptacion').innerHTML = documentoCarA;
+
+        //Operaciones para el manejo de la Plan de Trabajo
+        var strPlan = "Plan de Trabajo";
+        var docPlan = (snapshot.val() && snapshot.val().documentoPlanTrabajo);
+        var documentoPlan; //Variable que se mostrará en el HTML
+            if (docPlan == "Sin Añadir" || docPlan == null){
+                documentoPlan = "Sin añadir";    //Esto aparece en HTML cuando no hay documento  
+                document.getElementById('inputPlanTrabajo').style.display = 'inline';
+            }else{
+                documentoPlan = strPlan.link(docPlan); //.link convierte en enlace el dato recuperado de la BD
+                document.getElementById('inputPlanTrabajo').style.display = 'none'; //Deshabilita input
+            }
+        document.getElementById('planTrabajo').innerHTML = documentoPlan;
     });
 }
 //Llamada automática, esta funcion permite que se ejecute dentro del 
@@ -535,6 +548,35 @@ function eliminarCartaAceptacion(){
     alert("Documento Eliminado");
     location.reload(); //Actualizar la pagina automáticamente
     document.getElementById('inputCartaAceptacion').value = ""; //Limpia el campo cada que se hace la operación
+}
+
+//******************************************************************************************/
+//Documento = Carta Aceptación
+function actualizarPlanTrabajo(){
+    var userId  = localStorage.getItem('id'); //Recuperar el id del alumno
+    var platTrb = document.getElementById('inputPlanTrabajo').value; //Guardar en una variable el enlace del alumno
+    if (platTrb != ""){
+        firebase.database().ref('alumno/'+userId).update({
+            documentoPlanTrabajo:platTrb,
+        }).catch(function(error){
+            alert("Su documento no ha sido guardado con éxito. Intentelo mas tarde");
+        }); 
+        alert("Documento de Evidencia - Guardado");
+        location.reload(); //Actualizar la pagina automáticamente
+        document.getElementById('inputPlanTrabajo').value = ""; //Limpia el campo cada que se hace la operación
+    }
+}
+
+function eliminarPlanTrabajo(){
+    var userId = localStorage.getItem('id');
+    firebase.database().ref('alumno/'+userId).update({
+        documentoPlanTrabajo:notAdd,
+    }).catch(function(error){
+        alert("Su documento no ha sido borrado con éxito. Intentelo mas tarde");
+    });
+    alert("Documento Eliminado");
+    location.reload(); //Actualizar la pagina automáticamente
+    document.getElementById('inputPlanTrabajo').value = ""; //Limpia el campo cada que se hace la operación
 }
 
 function validar (){

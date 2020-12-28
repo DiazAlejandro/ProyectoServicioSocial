@@ -185,6 +185,19 @@ function consultarDocumentos(){
                 document.getElementById('inputconstanciaTerminacion').style.display = 'none'; //Deshabilita input
              }
          document.getElementById('constanciaTerminacion').innerHTML = documentoCons;
+
+        //Operaciones para el manejo de la Constancia
+        var strCarA = "Carta Aceptación";
+        var docCarA = (snapshot.val() && snapshot.val().documentoCartaAceptacion);
+        var documentoCarA; //Variable que se mostrará en el HTML
+            if (docCarA == "Sin Añadir" || docCarA == null){
+                documentoCarA = "Sin añadir";    //Esto aparece en HTML cuando no hay documento  
+                document.getElementById('inputCartaAceptacion').style.display = 'inline';
+            }else{
+                documentoCarA = strCarA.link(docCarA); //.link convierte en enlace el dato recuperado de la BD
+                document.getElementById('inputCartaAceptacion').style.display = 'none'; //Deshabilita input
+            }
+        document.getElementById('cartaAceptacion').innerHTML = documentoCarA;
     });
 }
 //Llamada automática, esta funcion permite que se ejecute dentro del 
@@ -493,6 +506,35 @@ function eliminarConstTer(){
     alert("Documento Eliminado");
     location.reload(); //Actualizar la pagina automáticamente
     document.getElementById('inputconstanciaTerminacion').value = ""; //Limpia el campo cada que se hace la operación
+}
+
+//******************************************************************************************/
+//Documento = Carta Aceptación
+function actualizarCartaAceptacion(){
+    var userId  = localStorage.getItem('id'); //Recuperar el id del alumno
+    var cartaAc = document.getElementById('inputCartaAceptacion').value; //Guardar en una variable el enlace del alumno
+    if (cartaAc != ""){
+        firebase.database().ref('alumno/'+userId).update({
+            documentoCartaAceptacion:cartaAc,
+        }).catch(function(error){
+            alert("Su documento no ha sido guardado con éxito. Intentelo mas tarde");
+        }); 
+        alert("Documento de Evidencia - Guardado");
+        location.reload(); //Actualizar la pagina automáticamente
+        document.getElementById('inputCartaAceptacion').value = ""; //Limpia el campo cada que se hace la operación
+    }
+}
+
+function eliminarCartaAceptacion(){
+    var userId = localStorage.getItem('id');
+    firebase.database().ref('alumno/'+userId).update({
+        documentoCartaAceptacion:notAdd,
+    }).catch(function(error){
+        alert("Su documento no ha sido borrado con éxito. Intentelo mas tarde");
+    });
+    alert("Documento Eliminado");
+    location.reload(); //Actualizar la pagina automáticamente
+    document.getElementById('inputCartaAceptacion').value = ""; //Limpia el campo cada que se hace la operación
 }
 
 function validar (){

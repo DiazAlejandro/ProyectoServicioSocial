@@ -1,29 +1,8 @@
-function loginAlumno(){
-    var email = document.getElementById('email').value;
-    var password = document.getElementById('password').value;
-    firebase.auth().signInWithEmailAndPassword(email,password).then(function(){
-        var id = firebase.auth().currentUser.uid;
-        var userId = localStorage.getItem('id');
-        
-        window.location.replace("/user_0.html");
-        localStorage.setItem('id',id);
-    }).catch(function(error){
-        var errorCode = error.code;
-        var errorMessage = error.errorMessage;
-        alert("Usuario No Registrado - Verifique sus Datos");
-        console.log(errorCode);
-        console.log(errorMessage);
-    });
-}
-
 //Cerrar la sesión 
-function logoutAlumno(){
-    firebase.auth().signOut().then(function() {
-        window.location.replace("/index.html");
-    }).catch(function(error) {
-    // An error happened.
-    });     
-}
+//Cerrar la sesión 
+ 
+   
+    
 
 //Cargar la información del usuario de acuerdo al id de su logeo
 function mostrarInformacion(){
@@ -52,7 +31,10 @@ function mostrarInformacion(){
             document.getElementById('carrera').innerHTML = carrera;
             document.getElementById('noctrl').innerHTML = noControl;
             document.getElementById('evidencia').innerHTML = documentoEvidencia;
-            document.getElementById('revisionEvidencia').innerHTML = revEvidencia;   
+
+            if (revEvidencia == null){
+                document.getElementById('revisionEvidencia').innerHTML = "Sin Envío";   
+            }else document.getElementById('revisionEvidencia').innerHTML = revEvidencia;   
             
             if (revEvidencia == "aceptado"){
                 mostrarElementos();
@@ -216,12 +198,7 @@ function consultarDocumentos(){
 //Llamada automática, esta funcion permite que se ejecute dentro del 
 //archivo html sin necesidad de tener un evento de tipo onClick().
 window.onload = function(){
-    try {
-        
-        mostrarInformacion();
-    }catch(error){
-        console.log("Error - Cargando Datos");
-    }
+    validar();
 }
 
 //Funciones encargadas de Guardar y eliminar los archivos de la BD 
@@ -580,27 +557,14 @@ function eliminarPlanTrabajo(){
 }
 
 function validar (){
-    var config = {
-        apiKey: "AIzaSyBjAqwgBh893FPDFLg1PEypTp2_e_Uh2qA",
-        authDomain: "servicio-social-d5a95.firebaseapp.com",
-        databaseURL: "https://servicio-social-d5a95-default-rtdb.firebaseio.com/",
-        projectId: "servicio-social-d5a95",
-        storageBucket: "servicio-social-d5a95.appspot.com",
-        messagingSenderId: "302681815081",
-        appId: "1:302681815081:web:f6649140f3fee89acb4438",
-        measurementId: "G-N4860PEFDP"
-    };
-    
-    firebase.initializeApp(config);
-    firebase.analytics();
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
           // El usuario está logueado, realiza acciones aquí
-          plugin1();
+          mostrarInformacion();
           console.log("Loggeado");
         } else {
              console.log("usuario nullo");
-             alert("Usuario No Autentificado, Inicie Sesión");
+             alert("Cerrando Sesión");
              location.replace("/login.html");
         }
       });

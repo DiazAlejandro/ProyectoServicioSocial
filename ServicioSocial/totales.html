@@ -34,15 +34,18 @@
     firebase.analytics();
     </script> 
     <script src = "calculosInfo.js"></script>
+
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 <body>
-    <h1>Hola</h1>
+    <h1>Mujeres y Hombres</h1>
     <a>Total Hombres:</a> 
     <a id="masc"></a><br>
     <a>Total Mujueres:</a>  
     <a id="feme"></a>  
+    <div id="genero" style="width: 900px; height: 500px;"></div>
 
-    <h1>Hola</h1>
+    <h1>Alumnos por Carrera</h1>
     <a>Total Ingeniería en Gestión Empresarial</a> 
     <a id="ige"></a><br>
     <a>Total Ingeniería en Sistemas Computacionales:</a>  
@@ -62,9 +65,70 @@
     <a>Total Licenciatura en administración:</a> 
     <a id="la"></a><br>
 
+    <div id="carreras" style="width: 900px; height: 500px;"></div>
+
+    <h1>Actividades Complementarias</h1>
+    <a>Completadas:</a> 
+    <a id="completadas"></a><br>
+    <a>Pendientes:</a>  
+    <a id="pendientes"></a><br>
+    <div id="complementarias" style="width: 900px; height: 500px;"></div>
+
+    <h1>Dependencia</h1>
+    <a>Gubernamental:</a> 
+    <a id="gob"></a><br>
+    <a>Federal:</a>  
+    <a id="federal"></a><br>
+    <a>Estatal:</a>  
+    <a id="estatal"></a><br>
+    <a>Asociación Civil:</a>  
+    <a id="asociacion"></a><br>
+    <a>Otra:</a>  
+    <a id="otra"></a><br>
+    <div id="dependencia" style="width: 900px; height: 500px;"></div>
     
+    <h1>Totales aceptados</h1>
+    <a>Creditos Completos:</a>  
+    <a id="comp"></a><br>
+    <a>Créditos Incompletos:</a>  
+    <a id="inco"></a><br>
+    <div id="aceptados" style="width: 900px; height: 500px;"></div>
+
+    <h1>Alumnos con Discapacidad</h1>
+    <a>Discapacidad:</a>  
+    <a id="disc"></a><br>
+    <a>Sin Discapacidad:</a>  
+    <a id="nodisc"></a><br>   
+    <div id="discapacitados" style="width: 900px; height: 500px;"></div>
     
-    
-    
+
+    <h1>Lengua</h1>
+    <a>Hablan Lengua Indigena:</a>  
+    <a id="hli"></a><br>
+    <a>No hablan Lengua Indígena</a>  
+    <a id="nhli"></a><br>
+    <div id="lengua" style="width: 900px; height: 500px;"></div>
+
+    <h1>Semestres</h1>
+    <a>Quinto:</a>  
+    <a id="quinto"></a><br>
+    <a>Sexto:</a>  
+    <a id="sexto"></a><br>
+    <a>Séptimo:</a>  
+    <a id="septimo"></a><br>
+    <a>Octavo:</a>  
+    <a id="octavo"></a><br>
+    <a>Noveno:</a>  
+    <a id="noveno"></a><br>
+    <a>Décimo:</a>  
+    <a id="decimo"></a><br>
+    <a>Onceavo:</a>  
+    <a id="onceavo"></a><br>
+    <a>Doceavo:</a>  
+    <a id="doceavo"></a><br>
+    <a>Treceavo:</a>  
+    <a id="treceavo"></a><br>
+
+    <div id="semestre" style="width: 900px; height: 500px;"></div>
 </body>
 </html>

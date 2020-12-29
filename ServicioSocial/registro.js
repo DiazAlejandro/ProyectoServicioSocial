@@ -29,11 +29,15 @@ function registrarAlumno(e) {
     //Datos estadisticos
     var genero = document.getElementById('genero').value;
     var lengua = document.getElementById('lengua').value;
-    var discapacidad = document.getElementById('discapacidad').value;
+    var discapacidad = document.getElementById('discapacidad').value;//modificamos discapacidad
     var actividad = document.getElementById('actividad').value;
     var dependencia = document.getElementById('dependencia').value;
     var periodo = document.getElementById('periodo').value;
-
+    //Cambios (Direccion, telefono, semestre)
+    var direccion = document.getElementById('direccion').value;
+    var telefono = document.getElementById('telefono').value;
+    var semestre = document.getElementById('semestre').value;
+    
     //alert(" name= " + name + " apell= " + apell + " carrera= " + carrera + " noctrl= " + noctrl + "email=" + email + " password=" + password);
     firebase.auth().createUserWithEmailAndPassword(email, password).then(function(){
         //alert("Alumno Registrado");
@@ -43,13 +47,17 @@ function registrarAlumno(e) {
             studentApellidos:apell,
             studentCarrera:carrera,
             studentNoctrl:noctrl,
-            //Datos Estadisticos
-            studentGenero:genero,
+            studentGenero:genero, 
+            //datos normales
             studentLengua:lengua,
             studentDiscapacidad:discapacidad,
             studentActcomplementaria:actividad,
             studentDependencia:dependencia,
-            studentPeriodo:periodo
+            studentPeriodo:periodo,
+            //new data
+            studentDireccion:direccion,
+            studentTelefono:telefono,
+            studentSemestre:semestre
         });
         registroExitoso();
         

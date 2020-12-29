@@ -23,7 +23,7 @@ function loginAlumno(){
 
 function logoutAlumno(){
   firebase.auth().signOut().then(function() {
-  window.replace("/login.html");
+
 })
 .catch(function(error) {
   // An error happened

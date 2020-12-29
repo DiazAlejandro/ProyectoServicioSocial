@@ -15,7 +15,6 @@ var db = firebase.firestore();
 
 window.onload = function(){
     try {
-        
         mostrarInformacion();
     }catch(error){
         console.log(error);
@@ -38,11 +37,18 @@ function mostrarInformacion(){
     var leng = 0 , nleng = 0;
     var quinto = 0, sexto = 0, septimo = 0, octavo = 0, 
     noveno = 0, decimo = 0, onceavo = 0, doceavo = 0, treceavo = 0;
+    var total = 0;
+    var totalc = 0, totalD = 0, totalK = 0, totalDisc= 0, totalLen=0, totalSem=0;
     //con esta función recorre todos los datos almacenados en FB ordenados por mi child(studentNoctrl)
     ref.orderByChild("studentNoctrl").on("child_added", function(snapshot){
     //repite el proceso como cuantas referencias encuentre y los asigna a la lista "d"
         var d = snapshot.val();        
         console.log(d);
+        total++;
+        totalc++; totalD++; totalK++; totalDisc++;totalLen++;totalSem++;
+        document.getElementById('total').innerHTML = total;
+
+        console.log("Total"+total);
 
         //Cantidad de mujeres y hombres
         var sexo = d.studentGenero; //Recupera en la variable sexo el valor del registro d.studentGenero de la BD
@@ -62,64 +68,22 @@ function mostrarInformacion(){
         ]);
 
         var options = {
-            title: 'Género',
+            title: 'Porcentaje de Alumnos por Género',
             pieHole: 0.4,
+            color: '#4e73df',
+            fontName: 'Arial',
+            fontSize: '16',
+            backgroundColor: 'f8f9fc',
             pieSliceText: 'label',
             pieSliceText: 'percentage',
             colors: ['#2201C8', '#FF02A7'] 
         };
-        var genero = new google.visualization.PieChart(document.getElementById('genero'));
-        genero.draw(data, options);
-      }
-
-        var carrera = d.studentCarrera;
-        if (carrera == "Ingeniería en Gestión Empresarial") IGE++;
-        if (carrera == "Ingeniería en Sis. Computacionales") ISC++;
-        if (carrera == "Ingeniería Civil") IC++;
-        if (carrera == "Ingeniería Electrónica") IE++;
-        if (carrera == "Ingeniería Mecánica") IM++;
-        if (carrera == "Ingeniería Industrial") II++;
-        if (carrera == "Ingeniería Química") IQ++;
-        if (carrera == "Ingeniería Electrica") IEL++;
-        if (carrera == "Licenciatura en administración") LA++;
-
-        document.getElementById('ige').innerHTML = IGE;
-        document.getElementById('isc').innerHTML = ISC;
-        document.getElementById('ic').innerHTML = IC;
-        document.getElementById('ie').innerHTML = IE;
-        document.getElementById('im').innerHTML = IM;
-        document.getElementById('ii').innerHTML = II;
-        document.getElementById('iq').innerHTML = IQ;
-        document.getElementById('iel').innerHTML = IEL;
-        document.getElementById('la').innerHTML = LA;
-
-        /**Grafica para las Carreras */
-        google.charts.load("current", {packages:["corechart"]});
-        google.charts.setOnLoadCallback(graficaCarrera);
-        function graficaCarrera() {
-            var data = google.visualization.arrayToDataTable([
-            ['Carrera', 'cantsidad'],
-            ['Ingeniería en Gestión Empresarial', IGE],
-            ['Ingeniería en Sis. Computacionales', ISC],
-            ['Ingeniería Civil', IC],
-            ['Ingeniería Electrónica', IE],
-            ['Ingeniería Mecánica', IM],
-            ['Ingeniería Industrial', II],
-            ['Ingeniería Química', IQ],
-            ['Ingeniería Eléctrica', IEL],
-            ['Licenciatura en administración', LA],
-
-        ]);
-
-        var options = {
-            title: 'Carreras ITO',
-            pieHole: 0.4,
-            pieSliceText: 'percentage',
-            colors: ['#FF0000', '#FF6700', '#FFB100', '#FF0291', '#3EE600', '#00C68A', '#006EC3', '#000ACC' , '#1C003A' ] 
-        };
-            var carreras = new google.visualization.PieChart(document.getElementById('carreras'));
-            carreras.draw(data, options);
+            var genero = new google.visualization.PieChart(document.getElementById('genero'));
+            genero.draw(data, options);
         }
+        document.getElementById('totalc').innerHTML = totalc;
+
+        //Actividades Complementarias *********************************************************
         var actividadesCom = d.studentActcomplementaria;
         if (actividadesCom == "Pendiente") actPen++;
         if (actividadesCom == "Completado") actComp++;
@@ -138,14 +102,20 @@ function mostrarInformacion(){
         var options = {
             title: 'Actividades Complementarias',
             pieHole: 0.4,
+            color: '#4e73df',
+            fontName: 'Arial',
+            fontSize: '16',
+            backgroundColor: 'f8f9fc',
             pieSliceText: 'label',
             pieSliceText: 'percentage',
             colors: ['#FFAB02', '#00D90E'] 
         };
-        var conplementarias = new google.visualization.PieChart(document.getElementById('complementarias'));
-        conplementarias.draw(data, options);
-      }
-
+            var conplementarias = new google.visualization.PieChart(document.getElementById('complementarias'));
+            conplementarias.draw(data, options);
+        }
+        
+        
+        //Dependencia *********************************************************
         var dependencia = d.studentDependencia;
         if (dependencia == "Gubernamental") gob++;
         if (dependencia == "Federal") fed++;
@@ -175,12 +145,18 @@ function mostrarInformacion(){
         var options = {
             title: 'Dependencia',
             pieHole: 0.4,
+            color: '#4e73df',
+            fontName: 'Arial',
+            fontSize: '16',
+            backgroundColor: 'f8f9fc',
             colors: ['#FF0000', '#FFB100', '#FF0291', '#3EE600', '#006EC3', '#000ACC' , '#1C003A' ] 
         };
             var dependencia = new google.visualization.PieChart(document.getElementById('dependencia'));
             dependencia.draw(data, options);
         }
+        document.getElementById('totalD').innerHTML = totalD;
 
+        //Créditos Completos ******************************************************
         var kardex = d.validacionEvidencia;
         if (kardex == "aceptado") karAc++;
         else karRe++;
@@ -201,12 +177,18 @@ function mostrarInformacion(){
         var options = {
             title: 'Kardex Aceptados',
             pieHole: 0.4,
+            color: '#4e73df',
+            fontName: 'Arial',
+            fontSize: '16',
+            backgroundColor: 'f8f9fc',
             colors: ['#10D01D', '#FF1300'] 
         };
             var kardexA = new google.visualization.PieChart(document.getElementById('aceptados'));
             kardexA.draw(data, options);
         }   
+        document.getElementById('totalK').innerHTML = totalK;
 
+        // Discapacidad *************************************************************
         var discapacidad = d.studentDiscapacidad;
         if (discapacidad == "Si") disc++;
         else nodisc++;
@@ -227,12 +209,18 @@ function mostrarInformacion(){
         var options = {
             title: 'Almunos que presentan alguna discapacidad',
             pieHole: 0.4,
+            color: '#4e73df',
+            fontName: 'Arial',
+            fontSize: '16',
+            backgroundColor: 'f8f9fc',
             colors: ['#660066', '#FFA200'] 
         };
             var discA = new google.visualization.PieChart(document.getElementById('discapacitados'));
             discA.draw(data, options);
         }   
+        document.getElementById('totalDis').innerHTML = totalDisc;
 
+        //Lengua ******************************************************+
         var lengua = d.studentLengua;
         if (lengua == "Si") leng++;
         else nleng++;
@@ -253,11 +241,17 @@ function mostrarInformacion(){
         var options = {
             title: 'Almunos que Hablan Alguna Lengua Indígena',
             pieHole: 0.4,
+            color: '#4e73df',
+            fontName: 'Arial',
+            fontSize: '16',
+            backgroundColor: 'f8f9fc',
             colors: ['#FFA110', '#900024'] 
         };
             var lengua = new google.visualization.PieChart(document.getElementById('lengua'));
             lengua.draw(data, options);
         }
+        document.getElementById('totalLen').innerHTML = totalLen;
+
 
         /*********************************************************************************************/
         var semestre = d.studentSemestre;
@@ -301,11 +295,16 @@ function mostrarInformacion(){
         var options = {
             title: 'Alumnos por Semestre',
             pieHole: 0.4,
+            color: '#4e73df',
+            fontName: 'Arial',
+            fontSize: '16',
+            backgroundColor: 'f8f9fc',
             colors: ['#FF0000', '#FF6700', '#FFB100', '#FF0291', '#3EE600', '#00C68A', '#006EC3', '#000ACC' , '#1C003A' ] 
         };
             var semes = new google.visualization.PieChart(document.getElementById('semestre'));
             semes.draw(data, options);
         }
+        document.getElementById('totalSem').innerHTML = totalSem;
 
     });
 

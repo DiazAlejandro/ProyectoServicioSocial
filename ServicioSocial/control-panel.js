@@ -4,11 +4,10 @@ window.onload = function(){
 
 function logoutAdmin(){
     firebase.auth().signOut().then(function() {
-    window.replace("/login.html");
-  })
-  .catch(function(error) {
-    // An error happened
-  });  
+        location.replace("/login.html");
+    }).catch(function(error) {
+    // An error happened.
+    });     
 }
 
 function plugin1(){
@@ -131,8 +130,7 @@ function mostrarAlumnos({documentoSolicitud, studentActcomplementaria, studentAp
             <label class="lbl1" for="${studentNoctrl}"></label>
             </div></td>`    
 };
-var masculino = 0; 
-var femenino = 0;
+
 function aceptar(comp,noCo) {
     var cambio="aceptado";
     var id = comp.id;
@@ -165,7 +163,6 @@ function aceptar(comp,noCo) {
             var valiEvidencia = datos.child("validacionEvidencia").val();
             if(valiEvidencia=="aceptado"){cambio="rechazado"}
 
-
             data={studentActcomplementaria:complementaria,
                 documentoEvidencia:docEvidencia,
                 studentApellidos:apellidos,
@@ -187,19 +184,6 @@ function aceptar(comp,noCo) {
 } 
 
 function validar (){
-    var config = {
-        apiKey: "AIzaSyBjAqwgBh893FPDFLg1PEypTp2_e_Uh2qA",
-        authDomain: "servicio-social-d5a95.firebaseapp.com",
-        databaseURL: "https://servicio-social-d5a95-default-rtdb.firebaseio.com/",
-        projectId: "servicio-social-d5a95",
-        storageBucket: "servicio-social-d5a95.appspot.com",
-        messagingSenderId: "302681815081",
-        appId: "1:302681815081:web:f6649140f3fee89acb4438",
-        measurementId: "G-N4860PEFDP"
-    };
-    
-    firebase.initializeApp(config);
-    firebase.analytics();
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
           // El usuario está logueado, realiza acciones aquí

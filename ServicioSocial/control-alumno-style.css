@@ -1,0 +1,7 @@
+td.details-control {
+    background: url('imagenes/boton-abrir.png') no-repeat center center;
+    cursor: pointer;
+}
+tr.shown td.details-control {
+    background: url('imagenes/boton-cerrar.png') no-repeat center center;
+}

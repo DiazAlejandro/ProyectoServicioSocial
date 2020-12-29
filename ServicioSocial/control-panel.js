@@ -161,6 +161,9 @@ function aceptar(comp,noCo) {
             var complementaria = datos.child("studentActcomplementaria").val();
             var noCo = datos.child("studentNoctrl").val();
             var valiEvidencia = datos.child("validacionEvidencia").val();
+            var tel = datos.child("studentTelefono").val();
+            var direction = datos.child("studentDireccion").val();
+            var semester = datos.child("studentSemestre").val();
             if(valiEvidencia=="aceptado"){cambio="rechazado"}
 
             data={studentActcomplementaria:complementaria,
@@ -174,7 +177,10 @@ function aceptar(comp,noCo) {
                 studentName:nombre,
                 studentNoctrl:noCo,
                 studentPeriodo:periodo,
-                validacionEvidencia:cambio
+                validacionEvidencia:cambio,
+                studentTelefono:tel,
+                studentDireccion:direction,
+                studentSemestre:semester
             }
         }
     })

@@ -1,9 +1,3 @@
-//Cerrar la sesión 
-//Cerrar la sesión 
- 
-   
-    
-
 //Cargar la información del usuario de acuerdo al id de su logeo
 function mostrarInformacion(){
     var userId = localStorage.getItem('id');
@@ -248,7 +242,7 @@ function actualizarSolicitud(){
         }).catch(function(error){
             alert("Su documento no ha sido guardado con éxito. Intentelo mas tarde");
         });
-        alert("Documento de Evidencia - Guardado");
+        alert("Solicitud - Guardado");
         location.reload(); //Actualizar la pagina automáticamente
         document.getElementById('inputSolicitud').value = ""; //Limpia el campo cada que se hace la operación
     }
@@ -277,7 +271,7 @@ function actualizarCartaComp(){
         }).catch(function(error){
             alert("Su documento no ha sido guardado con éxito. Intentelo mas tarde");
         }); 
-        alert("Documento de Evidencia - Guardado");
+        alert("Carta Compromiso - Guardado");
         location.reload(); //Actualizar la pagina automáticamente
         document.getElementById('inputCartaCom').value = ""; //Limpia el campo cada que se hace la operación    
     }
@@ -306,7 +300,7 @@ function actualizarTarjetaCtrl(){
         }).catch(function(error){
             alert("Su documento no ha sido guardado con éxito. Intentelo mas tarde");
         }); 
-        alert("Documento de Evidencia - Guardado");
+        alert("Tarjeta de Control - Guardado");
         location.reload(); //Actualizar la pagina automáticamente
         document.getElementById('inputTarjetaCtrl').value = ""; //Limpia el campo cada que se hace la operación
     }
@@ -335,7 +329,7 @@ function actualizarCartaAsignacion(){
         }).catch(function(error){
             alert("Su documento no ha sido guardado con éxito. Intentelo mas tarde");
         }); 
-        alert("Documento de Evidencia - Guardado");
+        alert("Carta Asignación - Guardado");
         location.reload(); //Actualizar la pagina automáticamente
         document.getElementById('inputCartaAsig').value = ""; //Limpia el campo cada que se hace la operación
     }
@@ -364,7 +358,7 @@ function actualizarReporteB(){
         }).catch(function(error){
             alert("Su documento no ha sido guardado con éxito. Intentelo mas tarde");
         }); 
-        alert("Documento de Evidencia - Guardado");
+        alert("Reporte Bimestral - Guardado");
         location.reload(); //Actualizar la pagina automáticamente
         document.getElementById('inputReporteB').value = ""; //Limpia el campo cada que se hace la operación
     }
@@ -393,7 +387,7 @@ function actualizarEvaluacion(){
         }).catch(function(error){
             alert("Su documento no ha sido guardado con éxito. Intentelo mas tarde");
         }); 
-        alert("Documento de Evidencia - Guardado");
+        alert("Formato Evaluación - Guardado");
         location.reload(); //Actualizar la pagina automáticamente
         document.getElementById('inputEvaluacion').value = ""; //Limpia el campo cada que se hace la operación
     }
@@ -422,7 +416,7 @@ function actualizarAutoEv(){
         }).catch(function(error){
             alert("Su documento no ha sido guardado con éxito. Intentelo mas tarde");
         }); 
-        alert("Documento de Evidencia - Guardado");
+        alert("Formato de AutoEvaluación - Guardado");
         location.reload(); //Actualizar la pagina automáticamente
         document.getElementById('inputAutoEv').value = ""; //Limpia el campo cada que se hace la operación
     }
@@ -451,7 +445,7 @@ function actualizarEvPres(){
         }).catch(function(error){
             alert("Su documento no ha sido guardado con éxito. Intentelo mas tarde");
         }); 
-        alert("Documento de Evidencia - Guardado");
+        alert("Evaluación por Parte del Prestador - Guardado");
         location.reload(); //Actualizar la pagina automáticamente
         document.getElementById('inputEvPres').value = ""; //Limpia el campo cada que se hace la operación
     }
@@ -480,7 +474,7 @@ function actualizarConstTer(){
         }).catch(function(error){
             alert("Su documento no ha sido guardado con éxito. Intentelo mas tarde");
         }); 
-        alert("Documento de Evidencia - Guardado");
+        alert("Constancia de Terminación - Guardado");
         location.reload(); //Actualizar la pagina automáticamente
         document.getElementById('inputconstanciaTerminacion').value = ""; //Limpia el campo cada que se hace la operación
     }
@@ -509,7 +503,7 @@ function actualizarCartaAceptacion(){
         }).catch(function(error){
             alert("Su documento no ha sido guardado con éxito. Intentelo mas tarde");
         }); 
-        alert("Documento de Evidencia - Guardado");
+        alert("Carta de Aceptación - Guardado");
         location.reload(); //Actualizar la pagina automáticamente
         document.getElementById('inputCartaAceptacion').value = ""; //Limpia el campo cada que se hace la operación
     }
@@ -538,7 +532,7 @@ function actualizarPlanTrabajo(){
         }).catch(function(error){
             alert("Su documento no ha sido guardado con éxito. Intentelo mas tarde");
         }); 
-        alert("Documento de Evidencia - Guardado");
+        alert("Plan de Trabajo - Guardado");
         location.reload(); //Actualizar la pagina automáticamente
         document.getElementById('inputPlanTrabajo').value = ""; //Limpia el campo cada que se hace la operación
     }

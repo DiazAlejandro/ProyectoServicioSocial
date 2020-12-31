@@ -42,29 +42,28 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark  ">
+    <nav class="navbar navbar-expand-lg navbar-dark sombraN ">
         <div class="container-fluid">
             <div class="form-group ito-img">
                 <img src="imagenes/ito.png">
             </div>
-            <h1 class="navbar-brand font-weight-bold lead">SERVICIO SOCIAL</h1>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto text-center">
-                    <button type="submit" class="font-weight-bolder cerrar" onclick="logoutAlumno()">Cerrar
-                        Sesión</button><br><br>
-                </ul>
-            </div>
+            <h1 class="navbar-brand font-weight-bold lead ">SERVICIO SOCIAL</h1>
+            <ul class="navbar-nav  ml-auto text-center">
+                <button type="submit" class=" btn btn-light font-weight-bolder cerrar" onclick="logoutAlumno()">Cerrar
+                    Sesión</button><br><br>
+            </ul>
+            
         </div>
     </nav>
     <header id="header">
         <div class="container-fluid">
-            <div class="row mt-3">
-                <div class="col-lg-4 ">
-                    <div class="panel  panel-default">
-                        <div class="panel-heading">
-                            <h2 class="panel-title">Información personal</h2>
-                        </div>
-                        <div class="panel-body">
+            <div class="row mt-4">
+                <div id="inicio"class="col-lg-6 container-fluid">
+                    <div class="card">
+                        <div class=" bg-secondary text-white card-header">
+                            Información personal
+                          </div>
+                        <div class="card-body ">
                             <label class="font-weight-bold lead">Nombre: </label> <label class="lead"
                                 id="nombre"></label><br>
                             <label class="font-weight-bold lead">Apellidos: </label> <label class="lead"
@@ -80,21 +79,21 @@
                         </div>
 
                     </div>
-                    <div class="panel  panel-default mt-4">
-                        <div class="panel-heading">
-                            <h2 class="panel-title">Documentación requerida</h2>
-                        </div>
-                        <div class="panel-body">
+                    <div class="card mt-4">
+                        <div class=" bg-secondary text-white card-header">
+                            Documentación requerida
+                          </div>
+                        <div class="card-body">
                             <div>
                                 <!--Etiquetas para la solicitud-->
                                 <label class="font-weight-bold lead">Ingresar en este apartado su documento: </label>
                                 <br>
 
-                                <input type="text" class="col-lg-10" style="display:inline" name="documentoEvidencia"
+                                <input type="text" class="col-lg-10 form-control" style="display:inline" name="documentoEvidencia"
                                     id="documentoEvidencia" placeholder="Ingrese enlace de su Kardex">
                             </div>
-                            <button class="col-sm-3 mt-2" onclick="actualizarEvidencia()">Guardar</button>
-                            <button class="col-sm-3 mt-2" onclick="eliminarEvidencia()">Eliminar</button><br><br>
+                            <button id ="btnG" class="col-sm-3 mt-2 btn btn-secondary " onclick="actualizarEvidencia()">Guardar</button>
+                            <button class="col-sm-3 mt-2 btn btn-danger" onclick="eliminarEvidencia()">Eliminar</button><br><br>
                             <a class="font-weight-bold" id="evidencia" onclick="open()"></a>
                             <div>
                                 <label class="font-weight-bold lead">Status de la Revisión: </label> <label class="lead"
@@ -103,94 +102,109 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-8 ">
-                    <div style="display:none" id="accesoDocumentos" class="panel panel-default">
-                        <div class="panel-heading">
-                            <h2 class="panel-title">Expediente del Alumno</h2>
+                <div id="lReuniones" style="display:none" class="col-lg-8 ">
+                    <div class="card ">
+                        <div class=" bg-secondary text-white card-header">
+                            Link de Reuniones de Meet
+                          </div>
+                        <div class="card-body">
+                            <div  id="link">
+                                
+                               
+
+                                
+                            </div>
+                           
                         </div>
-                        <div class="panel-body">
+                    </div>
+
+                    <div style="display:none" id="accesoDocumentos" class="card mt-3">
+                        <div class="bg-secondary text-white card-header">
+                            Expediente del Alumno
+                        </div>
+                        <div class="card-body">
                             <!--Etiquetas para la solicitud-->
                             <label class="font-weight-bold">1. Solicitud de Servicio Social:</label>
                             <a class="font-weight-bold" id="solicitud"></a>
                             <div>
-                                <input class="col-lg-6 " type="url" style="display:inline" name="inputSolicitud"
+                                <input class="col-lg-6 form-control" type="url" style="display:inline" name="inputSolicitud"
                                     id="inputSolicitud" placeholder="Ingrese Solicitud">
-                                <button onclick="actualizarSolicitud()">Guardar</button>
-                                <button onclick="eliminarSolicitud()">Eliminar</button><br><br>
+                                <button class="btn btn-secondary" onclick="actualizarSolicitud()">Guardar</button>
+                                <button  class="btn btn-danger" onclick="eliminarSolicitud()">Eliminar</button><br><br>
                             </div>
                             <!--Etiquetas para la Carta Compromiso-->
                             <label class="font-weight-bold">2. Carta Compromiso:</label>
                             <a class="font-weight-bold" id="cartaCompromiso"></a>
                             <div>
-                                <input class="col-lg-6" type="url" style="display:inline" name="inputCartaCom"
+                                <input class="col-lg-6 form-control " type="url" style="display:inline" name="inputCartaCom"
                                     id="inputCartaCom" placeholder="Ingrese Carta Compromiso">
-                                <button onclick="actualizarCartaComp()">Guardar</button>
-                                <button onclick="eliminarCartaComp()">Eliminar</button><br><br>
+                                <button class="btn btn-secondary" onclick="actualizarCartaComp()">Guardar</button>
+                                <button class="btn btn-danger" onclick="eliminarCartaComp()">Eliminar</button><br><br>
                             </div>
                             <!--Etiquetas para la Carta de Asignación-->
                             <label class="font-weight-bold">3. Carta de asignación:</label>
                             <a class="font-weight-bold" id="cartaAsignacion"></a>
                             <div>
-                                <input class="col-lg-6" type="url" style="display:inline" name="inputCartaAsig"
+                                <input class="col-lg-6 form-control" type="url" style="display:inline" name="inputCartaAsig"
                                     id="inputCartaAsig" placeholder="Ingrese Carta de Asignacion">
-                                <button onclick="actualizarCartaAsignacion()">Guardar</button>
-                                <button onclick="eliminarCartaAsignacion()">Eliminar</button><br><br>
+                                <button class="btn btn-secondary" onclick="actualizarCartaAsignacion()">Guardar</button>
+                                <button class="btn btn-danger" onclick="eliminarCartaAsignacion()">Eliminar</button><br><br>
                             </div>
                             <!--Etiquetas para la Tarjeta de Control-->
                             <label class="font-weight-bold">4. Tarjeta de Control:</label>
                             <a class="font-weight-bold" id="tarjetaControl"></a>
                             <div>
-                                <input class="col-lg-6" type="url" style="display:inline" name="inputTarjetaCtrl"
+                                <input class="col-lg-6 form-control" type="url" style="display:inline" name="inputTarjetaCtrl"
                                     id="inputTarjetaCtrl" placeholder="Ingrese Tarjeta Control">
-                                <button onclick="actualizarTarjetaCtrl()">Guardar</button>
-                                <button onclick="eliminarTarjetaCtrl()">Eliminar</button><br><br>
+                                <button class="btn btn-secondary" onclick="actualizarTarjetaCtrl()">Guardar</button>
+                                <button class="btn btn-danger" onclick="eliminarTarjetaCtrl()">Eliminar</button><br><br>
                             </div>
                             <!--Etiquetas para la Reporte Bimestral-->
                             <label class="font-weight-bold">6. Reporte Bimestral:</label>
                             <a class="font-weight-bold" id="reporteBimestral"></a>
                             <div>
-                                <input class="col-lg-6" type="url" style="display:inline" name="inputReporteB"
+                                <input class="col-lg-6 form-control" type="url" style="display:inline" name="inputReporteB"
                                     id="inputReporteB" placeholder="Ingrese Reporte Bimestral">
-                                <button onclick="actualizarReporteB()">Guardar</button>
-                                <button onclick="eliminarReporteB()">Eliminar</button><br><br>
+                                <button class="btn btn-secondary" onclick="actualizarReporteB()">Guardar</button>
+                                <button class="btn btn-danger" onclick="eliminarReporteB()">Eliminar</button><br><br>
                             </div>
                             <!--Etiquetas para la Formato de Evaluación-->
                             <label class="font-weight-bold">7. Formato de Evaluación:</label>
                             <a class="font-weight-bold" id="formatoEvaluacion"></a>
                             <div>
-                                <input class="col-lg-6 font-weight-bold" type="url" style="display:inline"
+                                <input class="col-lg-6 form-control" type="url" style="display:inline"
                                     name="inputEvaluacion" id="inputEvaluacion"
                                     placeholder="Ingrese Formato Evaluación">
-                                <button onclick="actualizarEvaluacion()">Guardar</button>
-                                <button onclick="eliminarEvaluacion()">Eliminar</button><br><br>
+                                <button class="btn btn-secondary" onclick="actualizarEvaluacion()">Guardar</button>
+                                <button class="btn btn-danger" onclick="eliminarEvaluacion()">Eliminar</button><br><br>
                             </div>
                             <!--Etiquetas para la Formato de AutoEvaluación-->
                             <label class="font-weight-bold">8. Formato de AutoEvaluación:</label>
                             <a class="font-weight-bold" id="formatoAutoEv"></a>
                             <div>
-                                <input class="col-lg-6" type="url" style="display:inline" name="inputAutoEv"
+                                <input class="col-lg-6 form-control" type="url" style="display:inline" name="inputAutoEv"
                                     id="inputAutoEv" placeholder="Ingrese Formato Auto-Evaluación">
-                                <button onclick="actualizarAutoEv()">Guardar</button>
-                                <button onclick="eliminarAutoEv()">Eliminar</button><br><br>
+                                <button class="btn btn-secondary" onclick="actualizarAutoEv()">Guardar</button>
+                                <button class="btn btn-danger" onclick="eliminarAutoEv()">Eliminar</button><br><br>
                             </div>
                             <!--Etiquetas para la Evaluación por Parte del Prestador-->
                             <label class="font-weight-bold">9. Formato de Evaluación por Parte del Prestador:</label>
                             <a class="font-weight-bold" id="formatoEvPres"></a>
                             <div>
-                                <input class="col-lg-6" type="url" style="display:inline" name="inputEvPres"
+                                <input class="col-lg-6 form-control" type="url" style="display:inline" name="inputEvPres"
                                     id="inputEvPres" placeholder="Ingrese Formato Evaluación por Parte del Prestador">
-                                <button onclick="actualizarEvPres()">Guardar</button>
-                                <button onclick="eliminarEvPres()">Eliminar</button><br><br>
+                                <button class="btn btn-secondary"onclick="actualizarEvPres()">Guardar</button>
+                                <button class="btn btn-danger" onclick="eliminarEvPres()">Eliminar</button><br><br>
                             </div>
                             <!--Etiquetas para la Constancia de Terminación-->
                             <label class="font-weight-bold">10. Constancia de Terminación: </label>
                             <a class="font-weight-bold" id="constanciaTerminacion"></a>
                             <div>
-                                <input class="col-lg-6" type="url" style="display:inline"
+                                <input class="col-lg-6 form-control" type="url" style="display:inline"
                                     name="inputconstanciaTerminacion" id="inputconstanciaTerminacion"
                                     placeholder="Ingrese Constancia de Terminación">
-                                <button onclick="actualizarConstTer()">Guardar</button>
-                                <button onclick="eliminarConstTer()">Eliminar</button><br><br>
+                                <button class="btn btn-secondary" onclick="actualizarConstTer()">Guardar</button>
+                                <button class="btn btn-danger" onclick="eliminarConstTer()">Eliminar</button><br><br>
                             </div>
                         </div>
                         <div class="panel  panel-default mt-4">
@@ -205,19 +219,19 @@
                                     <a class="font-weight-bold" id="cartaAceptacion"></a>
                                     <div>
                                         <a>(Documento generado por la Institución)</a> <br><br>
-                                        <input class="col-lg-6" type="url" style="display:inline"
+                                        <input class="col-lg-6 form-control" type="url" style="display:inline"
                                             name="inputCartaAceptacion" id="inputCartaAceptacion"
                                             placeholder="Ingrese Carta de Aceptación">
-                                        <button onclick="actualizarCartaAceptacion()">Guardar</button>
-                                        <button onclick="eliminarCartaAceptacion()">Eliminar</button><br><br>
+                                        <button class="btn btn-secondary" onclick="actualizarCartaAceptacion()">Guardar</button>
+                                        <button class="btn btn-danger" onclick="eliminarCartaAceptacion()">Eliminar</button><br><br>
                                     </div>
                                     <label class="font-weight-bold">*Plan de Trabajo:</label>
                                     <a class="font-weight-bold" id ="planTrabajo" ></a>
                                     <div>
                                         <a>(Conforme a las actividades a realizar)</a> <br><br>
-                                        <input class="col-lg-6" type="url" style="display:inline" name = "inputPlanTrabajo" id = "inputPlanTrabajo" placeholder="Ingrese Plan de Trabajo">
-                                        <button onclick="actualizarPlanTrabajo()">Guardar</button>
-                                        <button onclick="eliminarPlanTrabajo()">Eliminar</button><br><br>
+                                        <input class="col-lg-6 form-control" type="url" style="display:inline" name = "inputPlanTrabajo" id = "inputPlanTrabajo" placeholder="Ingrese Plan de Trabajo">
+                                        <button class="btn btn-secondary" onclick="actualizarPlanTrabajo()">Guardar</button>
+                                        <button  class="btn btn-danger"onclick="eliminarPlanTrabajo()">Eliminar</button><br><br>
                                    </div>
                                 </div>
                             </div>

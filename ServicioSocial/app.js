@@ -15,9 +15,13 @@ function mostrarInformacion(){
             if (docEv == "Sin Añadir" || docEv == null){
                 documentoEvidencia = "Sin añadir";    //Esto aparece en HTML cuando no hay documento   
                 document.getElementById('documentoEvidencia').style.display = 'inline';    
+                let ele3=document.getElementById("btnG")
+                ele3.setAttribute("style", "display");
             }else{
                 documentoEvidencia = str.link(docEv); //.link convierte en enlace el dato recuperado de la BD
                 document.getElementById('documentoEvidencia').style.display = 'none'; 
+                let ele3=document.getElementById("btnG")
+                ele3.setAttribute("style", "display:none");
             }
             //document.getElementById('idEtiquetaAmostrarEnHTML').innerHTML = varible;
             document.getElementById('nombre').innerHTML = nombre;
@@ -31,13 +35,36 @@ function mostrarInformacion(){
             }else document.getElementById('revisionEvidencia').innerHTML = revEvidencia;   
             
             if (revEvidencia == "aceptado"){
-                mostrarElementos();
+                mostrarElementos(carrera);
                 consultarDocumentos();
+               
             }
         });
 }
 
-function mostrarElementos(){
+function mostrarElementos(carrera){
+    console.log(carrera);
+    var idC;
+    if (carrera=="Ingeniería en Sis. Computacionales")  idC="administracion";
+    if (carrera=="Ingeniería Civil")  idC="civil";
+    if (carrera=="Ingeniería Electrónica")  idC="electrica";
+    if (carrera=="Ingeniería Electrónica")  idC="electronica";
+    if (carrera=="Ingeniería en Gestión Empresarial")  idC="gestion";
+    if (carrera=="Ingeniería Industrial")  idC="industrial";
+    if (carrera=="Ingeniería Mecánica")  idC="mecanica";
+    if (carrera=="Ingeniería Química")  idC="quimica";
+    if (carrera=="Ingeniería en Sis. Computacionales")  idC="sistemas";
+ 
+    firebase.database().ref('enlace/'+idC).once('value').then(function(snapshot){
+        var ln = (snapshot.val());
+        console.log(ln);
+        let el=document.getElementById("link").innerHTML=`<a href ="${ln}" target="_blank">${ln}</a>`;
+        let ele=document.getElementById("lReuniones")
+        let ele2=document.getElementById("inicio")
+        ele.setAttribute("style", "display");
+        ele2.setAttribute("class", "col-lg-4 container-fluid");
+    });
+    
     document.getElementById('accesoDocumentos').style.display = 'block';
 }
 

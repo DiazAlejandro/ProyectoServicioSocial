@@ -51,6 +51,14 @@ function format ( d ) {
             '<td>Constancia de Terminación:</td>'+
             '<td>'+d[15]+'</td>'+
         '</tr>'+
+        '<tr>'+
+            '<td>*Carta de Aceptación:</td>'+
+            '<td>'+d[16]+'</td>'+
+        '</tr>'+
+        '<tr>'+
+            '<td>*Plan de trabajo:</td>'+
+            '<td>'+d[17]+'</td>'+
+        '</tr>'+
     '</table>';
 
     
@@ -117,6 +125,12 @@ function plugin1() {
 
         var constanciaTerm = "Constancia de Terminación";
         var constanciaTerm1 = datos.child("documentoConstancia").val();
+
+        var cartaAceptacion = "Carta Aceptación";
+        var cartaAceptacion1 = datos.child("documentoCartaAceptacion").val();
+
+        var planDeTrabajo = "Plan de Trabajo";
+        var planDeTrabajo1 = datos.child("documentoPlanTrabajo").val();
 
 
 
@@ -186,7 +200,19 @@ function plugin1() {
 
             };
 
+            if (cartaAceptacion1 == "Sin Añadir" || cartaAceptacion1 == null){
+                cartaAceptacion = "Sin Añadir";    //Esto aparece en HTML cuando no hay documento  
+            }else{
+                cartaAceptacion = cartaAceptacion.link(cartaAceptacion1);
 
+            };
+
+            if (planDeTrabajo1 == "Sin Añadir" || planDeTrabajo1 == null){
+                planDeTrabajo = "Sin Añadir";    //Esto aparece en HTML cuando no hay documento  
+            }else{
+                planDeTrabajo = planDeTrabajo.link(planDeTrabajo1);
+
+            };
             
 
             dataSet = ["",
@@ -204,7 +230,9 @@ function plugin1() {
             formatoEvaluacion,
             formatoAutoEv,
             formatoEvPrestador,
-            constanciaTerm
+            constanciaTerm,
+            cartaAceptacion,
+            planDeTrabajo
             ];
 
 
